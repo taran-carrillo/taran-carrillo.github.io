@@ -3,7 +3,7 @@ main {
     grid-template-columns: repeat(6, auto);
     grid-template-rows: repeat(13, auto);
     grid-template-areas:
-    'h1 h1 h1 h1 h1 h1'
+    'title title title title title title'
     '. . . . . .'
     '. . . . . .'
     '. . . . . .'
@@ -17,4 +17,15 @@ main {
     '. . . . . .'
     '. . . . . .';
 }
-#title { grid-area: title; }
+#title { grid-area: title; 
+    line-height: 0.75rem; 
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 1rem;
+}
