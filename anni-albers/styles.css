@@ -17,4 +17,4 @@ main {
     '. . . . . .'
     '. . . . . .';
 }
-h1 { grid-area: h1 }
+#title { grid-area: title; }
