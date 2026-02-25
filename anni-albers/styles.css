@@ -4,11 +4,11 @@ main {
     grid-template-rows: repeat(13, auto);
     grid-template-areas:
         'title title title title title title'
-        '. . . . . .'
-        '. . . . . .'
-        '. . . . . .'
-        '. . . . . .'
-        '. . . . . .'
+        'p1 p1 p2 p2 p3 p3'
+        'p4 p4 p5 p5 p5 p5'
+        'p6 p6 p6 p7 p7 p7'
+        'p8 p8 p9 p9 p10 p10'
+        'p11 p11 aB aB aB aB'
         '. . . . . .'
         '. . . . . .'
         '. . . . . .'
@@ -97,5 +97,10 @@ h2 {
 
 #para11 {
     grid-area: p11;
+    text-align: justify;
+}
+
+#authorBio {
+    grid-area: aB;
     text-align: justify;
 }
