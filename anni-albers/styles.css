@@ -10,7 +10,7 @@ main {
         'p8 p8 p8 p9 p9 p9'
         'p10 p10 p11 p11 p11 p11'
         'aB aB aB aB aB aB';
-
+}
 #title {
     grid-area: title;
     line-height: 0.75rem;
