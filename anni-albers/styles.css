@@ -99,3 +99,7 @@ h2 {
     grid-area: aB;
     text-align: justify;
 }
+
+h3 {
+    text-decoration: underline;
+}
