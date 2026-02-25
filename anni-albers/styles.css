@@ -31,5 +31,22 @@ h2 {
 }
 
 * {
-    font-family
+    font-family: sans-serif;
+    text-align: justify;
 }
+
+.callout, .callout2, .callout3, .callout4 {
+    font-style: italic;
+    font-size: 1.3rem;
+}
+#para1 {grid-area: p1;}
+#para2 {grid-area: p2;}
+#para3 {grid-area: p3;}
+#para4 {grid-area: p4;}
+#para5 {grid-area: p5;}
+#para6 {grid-area: p6;}
+#para7 {grid-area: p7;}
+#para8 {grid-area: p8;}
+#para9 {grid-area: p9;}
+#para10 {grid-area: p10;}
+#para11 {grid-area: p11;}
