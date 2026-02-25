@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>6×6 Grid Example</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background-color: #f8f9fa;
+      color: #222;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+      color: white;
+      padding: 60px 20px 40px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      margin-bottom: 12px;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      padding: 20px 0 60px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      transition: all 0.25s ease;
+      aspect-ratio: 1 / 1;     /* makes each item square */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #444;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.14);
+    }
+
+    /* Just some fun alternating colors */
+    .card:nth-child(6n+1) { background: #e3f2fd; }
+    .card:nth-child(6n+2) { background: #e8f5e9; }
+    .card:nth-child(6n+3) { background: #fff3e0; }
+    .card:nth-child(6n+4) { background: #f3e5f5; }
+    .card:nth-child(6n+5) { background: #e0f7fa; }
+    .card:nth-child(6n+6) { background: #ffebee; }
+
+    @media (max-width: 1100px) {
+      .grid-container {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      header h1 {
+        font-size: 2.6rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      header {
+        padding: 50px 15px 30px;
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>Zorblax Quantum Widget Factory</h1>
+      <p>Flipping wibbly gerblins since 2026 — now with 47% more flux capacitor nonsense</p>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="grid-container">
+      <div class="card">Plumbus wibbly florp</div>
+      <div class="card">Quantum schmeckles</div>
+      <div class="card">Garglaxian flux tube</div>
+      <div class="card">Blorpity splorpo</div>
+      <div class="card">Zwoingus maximus</div>
+      <div class="card">Flibbertigibbet 3000</div>
+      
+      <div class="card">Nerf herder deluxe</div>
+      <div class="card">Wumpus capacitor</div>
+      <div class="card">Glompytron v4.2</div>
+      <div class="card">Snizzle wizzle pop</div>
+      <div class="card">Krelborn fluxinator</div>
+      <div class="card">Zargothian beep boop</div>
+      
+      <div class="card">Thneeds are us</div>
+      <div class="card">Vortex schmortex</div>
+      <div class="card">Plink plonk widget</div>
+      <div class="card">Gizmofrab delight</div>
+      <div class="card">Wibbly wobbly thing</div>
+      <div class="card">Floop de loop</div>
+      
+      <div class="card">Bazinga particle</div>
+      <div class="card">Yadda yadda core</div>
+      <div class="card">Snorfblatt engine</div>
+      <div class="card">Quixotic doodad</div>
+      <div class="card">Kerfuffle module</div>
+      <div class="card">Zippity zap zap</div>
+      
+      <div class="card">Mooncheese generator</div>
+      <div class="card">flibber flabber</div>
+      <div class="card">Gizmo McGizmoface</div>
+      <div class="card">Woozle wazzle</div>
+      <div class="card">Bloop bleep blorp</div>
+      <div class="card">Thingamabobulator</div>
+      
+      <div class="card">Last one’s a whatchamacallit</div>
+      <div class="card">Extra floofel</div>
+      <div class="card">Schmozzle popper</div>
+      <div class="card">Yeet capacitor</div>
+      <div class="card">Gargonzola flux</div>
+      <div class="card">End of line — beep</div>
+    </div>
+  </div>
+
+</body>
+</html>
