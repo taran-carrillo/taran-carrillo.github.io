@@ -34,7 +34,9 @@ h2 {
 
 * {
     font-family: sans-serif;
-    text-align: justify;
+    margin-left: 1rem;
+    margin-top: 1rem;
+
 }
 
 .callout,
