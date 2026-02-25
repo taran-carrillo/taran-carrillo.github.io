@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grid Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0e0e0e;
+      --surface:  #161616;
+      --border:   #2a2a2a;
+      --accent:   #d4ff4e;
+      --text:     #e8e8e8;
+      --muted:    #666;
+      --header-h: 140px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 3rem 4rem 2rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 4rem;
+      width: 80px; height: 3px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    h1 span { color: var(--accent); }
+
+    .subheader {
+      margin-top: 0.75rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      max-width: 500px;
+    }
+
+    /* ── GRID LABEL ── */
+    .grid-label {
+      padding: 1.5rem 4rem 1rem;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── 6×6 GRID ── */
+    .grid-wrapper {
+      padding: 0 4rem 4rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(6, 140px);
+      gap: 12px;
+    }
+
+    /* all cells share base styles */
+    .cell {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, background 0.2s;
+      cursor: default;
+    }
+
+    .cell:hover {
+      border-color: var(--accent);
+      background: #1c1c1c;
+    }
+
+    /* cell index badge */
+    .cell::before {
+      content: attr(data-index);
+      position: absolute;
+      top: 0.75rem; right: 0.75rem;
+      font-size: 0.6rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+    }
+
+    /* cell label */
+    .cell-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* ── ACCENT CELLS ── */
+    .cell--accent {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .cell--accent:hover { background: #c8f23a; border-color: #c8f23a; }
+    .cell--accent .cell-label { color: #0e0e0e; }
+    .cell--accent::before    { color: rgba(0,0,0,0.35); }
+
+    /* ── LARGE SPAN CELL (row 1, cols 1–3) ── */
+    .cell--wide {
+      grid-column: 1 / 4;
+    }
+
+    /* ── TALL SPAN CELL (rows 3–4, col 6) ── */
+    .cell--tall {
+      grid-row: 3 / 5;
+    }
+
+    /* ── FOOTER ROW ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    footer span { color: var(--accent); }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Zorblex <span>&amp;</span> Quimp</h1>
+    <p class="subheader">
+      Flargled solutions for the modern thrumtastic enterprise — wibbling boundaries since the frobnicated era
+    </p>
+  </header>
+
+  <div class="grid-label">// 6 × 6 grid — 36 cells</div>
+
+  <div class="grid-wrapper">
+    <div class="grid">
+
+      <!-- Row 1 -->
+      <div class="cell cell--wide cell--accent" data-index="01/36">
+        <span class="cell-label">Blonkified Module</span>
+      </div>
+      <div class="cell" data-index="02/36"><span class="cell-label">Snorple Unit</span></div>
+      <div class="cell" data-index="03/36"><span class="cell-label">Grumtastic</span></div>
+      <div class="cell" data-index="04/36"><span class="cell-label">Plimber</span></div>
+
+      <!-- Row 2 -->
+      <div class="cell" data-index="05/36"><span class="cell-label">Wibble Core</span></div>
+      <div class="cell" data-index="06/36"><span class="cell-label">Flurb API</span></div>
+      <div class="cell" data-index="07/36"><span class="cell-label">Zazzle Node</span></div>
+      <div class="cell" data-index="08/36"><span class="cell-label">Morple Set</span></div>
+      <div class="cell cell--accent" data-index="09/36"><span class="cell-label">Splunked</span></div>
+      <div class="cell" data-index="10/36"><span class="cell-label">Norbish</span></div>
+
+      <!-- Row 3 -->
+      <div class="cell" data-index="11/36"><span class="cell-label">Gumble</span></div>
+      <div class="cell" data-index="12/36"><span class="cell-label">Quorb Link</span></div>
+      <div class="cell" data-index="13/36"><span class="cell-label">Slubber</span></div>
+      <div class="cell" data-index="14/36"><span class="cell-label">Prunk Cache</span></div>
+      <div class="cell" data-index="15/36"><span class="cell-label">Blivit</span></div>
+      <div class="cell cell--tall" data-index="16/36"><span class="cell-label">Frobnic Stack</span></div>
+
+      <!-- Row 4 -->
+      <div class="cell" data-index="17/36"><span class="cell-label">Zilch Bus</span></div>
+      <div class="cell cell--accent" data-index="18/36"><span class="cell-label">Thrimble</span></div>
+      <div class="cell" data-index="19/36"><span class="cell-label">Gorfle Net</span></div>
+      <div class="cell" data-index="20/36"><span class="cell-label">Vumble</span></div>
+      <div class="cell" data-index="21/36"><span class="cell-label">Whimsy Hook</span></div>
+      <!-- col 6 occupied by tall cell -->
+
+      <!-- Row 5 -->
+      <div class="cell" data-index="22/36"><span class="cell-label">Krungle</span></div>
+      <div class="cell" data-index="23/36"><span class="cell-label">Splorf Tag</span></div>
+      <div class="cell" data-index="24/36"><span class="cell-label">Mibble</span></div>
+      <div class="cell" data-index="25/36"><span class="cell-label">Drubnik</span></div>
+      <div class="cell" data-index="26/36"><span class="cell-label">Nurple Key</span></div>
+      <div class="cell" data-index="27/36"><span class="cell-label">Clobrix</span></div>
+
+      <!-- Row 6 -->
+      <div class="cell" data-index="28/36"><span class="cell-label">Flobbish</span></div>
+      <div class="cell" data-index="29/36"><span class="cell-label">Wumpton</span></div>
+      <div class="cell cell--accent" data-index="30/36"><span class="cell-label">Grimblex</span></div>
+      <div class="cell" data-index="31/36"><span class="cell-label">Snibble</span></div>
+      <div class="cell" data-index="32/36"><span class="cell-label">Prumble</span></div>
+      <div class="cell" data-index="33/36"><span class="cell-label">Zorfnik</span></div>
+
+    </div>
+  </div>
+
+  <footer>
+    <span>Zorblex &amp; Quimp Industries</span>
+    <span>6 <span>×</span> 6 — 36 cells</span>
+  </footer>
+
+</body>
+</html>
