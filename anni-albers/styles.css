@@ -103,3 +103,26 @@ h2 {
 h3 {
     text-decoration: underline;
 }
+
+/* ************************* */
+/*    CSS for index2.html    */
+/* ************************* */
+
+body#secondLayout {
+    width: 100%;
+    max-width: fit-content;
+    margin: 0 auto;
+}
+
+#main2 {
+    column-count: 6;
+    column-gap: 10px;
+    font-size: .90rem;
+    font-family: sans-serif;
+    
+}
+
+#cal1, #cal2, #cal3, #cal4 {
+    font-style: italic;
+    font-size: 1rem;
+}
