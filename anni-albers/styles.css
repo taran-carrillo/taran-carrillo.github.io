@@ -122,8 +122,6 @@ body#secondLayout {
     column-gap: 10px;
     font-size: .90rem;
     font-family: sans-serif;
-    table-layout: fixed;
-
 }
 
 #cal1,
@@ -135,5 +133,5 @@ body#secondLayout {
 }
 
 #header {
-    
+
 }
