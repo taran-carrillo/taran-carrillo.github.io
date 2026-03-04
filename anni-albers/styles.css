@@ -118,6 +118,7 @@ h3 {
     column-gap: 10px;
     font-size: .90rem;
     font-family: sans-serif;
+    column-rule: 1px solid black;
 }
 
 #cal1,
