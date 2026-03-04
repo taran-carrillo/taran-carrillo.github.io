@@ -111,11 +111,6 @@ h3 {
 
 /* ************************* */
 
-body#secondLayout {
-    width: 100%;
-    max-width: fit-content;
-    margin: 0 auto;
-}
 
 #main2 {
     column-count: 6;
@@ -132,6 +127,28 @@ body#secondLayout {
     font-size: 1rem;
 }
 
-h1{
-    font-size: 2.5rem;
+#header {
+  column-span: all;
+}
+
+#t2 {
+  font-size: 3rem;
+}
+#st2 {
+  font-size: .90rem;
+  margin-top: -1.7rem;
+  margin-bottom: 1.4rem;
+}
+
+#par1 {
+  margin-top: 0;
+}
+
+#par1:first-letter {
+  font-weight: bold;
+  font-size: 2.7rem;
+  float: left;
+  margin-right: 10px;
+  margin-top: -0.1em;
+  font-family: serif;
 }
