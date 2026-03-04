@@ -1,4 +1,4 @@
-main {
+main#main1 {
     display: grid;
     grid-template-columns: repeat(6, auto);
     grid-template-rows: repeat(7, auto);
