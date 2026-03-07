@@ -1,3 +1,6 @@
+Index · HTML
+Copy
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,6 +142,43 @@
       grid-row: 3 / 5;
     }
 
+    /* ── IMAGE CELLS ── */
+    .cell--image {
+      padding: 0;
+      border-color: var(--border);
+    }
+
+    .cell--image:hover {
+      border-color: var(--accent);
+    }
+
+    .cell--image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 3px;
+      transition: transform 0.35s ease, filter 0.35s ease;
+      filter: saturate(0.85);
+    }
+
+    .cell--image:hover img {
+      transform: scale(1.06);
+      filter: saturate(1.1);
+    }
+
+    .cell--image .cell-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 0.6rem 0.75rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.72));
+      color: #fff;
+      z-index: 1;
+      border-radius: 0 0 3px 3px;
+    }
+
+    .cell--image::before { z-index: 2; color: rgba(255,255,255,0.55); }
+
     /* ── FOOTER ROW ── */
     footer {
       border-top: 1px solid var(--border);
@@ -180,7 +220,10 @@
       <!-- Row 2 -->
       <div class="cell" data-index="05/36"><span class="cell-label">Wibble Core</span></div>
       <div class="cell" data-index="06/36"><span class="cell-label">Flurb API</span></div>
-      <div class="cell" data-index="07/36"><span class="cell-label">Zazzle Node</span></div>
+      <div class="cell cell--image" data-index="07/36">
+        <img src="https://placedog.net/400/300?id=1" alt="Puppy" loading="lazy"/>
+        <span class="cell-label">Zazzle Pup</span>
+      </div>
       <div class="cell" data-index="08/36"><span class="cell-label">Morple Set</span></div>
       <div class="cell cell--accent" data-index="09/36"><span class="cell-label">Splunked</span></div>
       <div class="cell" data-index="10/36"><span class="cell-label">Norbish</span></div>
@@ -197,12 +240,18 @@
       <div class="cell" data-index="17/36"><span class="cell-label">Zilch Bus</span></div>
       <div class="cell cell--accent" data-index="18/36"><span class="cell-label">Thrimble</span></div>
       <div class="cell" data-index="19/36"><span class="cell-label">Gorfle Net</span></div>
-      <div class="cell" data-index="20/36"><span class="cell-label">Vumble</span></div>
+      <div class="cell cell--image" data-index="20/36">
+        <img src="https://placedog.net/400/300?id=8" alt="Puppy" loading="lazy"/>
+        <span class="cell-label">Vumble Pup</span>
+      </div>
       <div class="cell" data-index="21/36"><span class="cell-label">Whimsy Hook</span></div>
       <!-- col 6 occupied by tall cell -->
 
       <!-- Row 5 -->
-      <div class="cell" data-index="22/36"><span class="cell-label">Krungle</span></div>
+      <div class="cell cell--image" data-index="22/36">
+        <img src="https://placedog.net/400/300?id=15" alt="Puppy" loading="lazy"/>
+        <span class="cell-label">Krungle Pup</span>
+      </div>
       <div class="cell" data-index="23/36"><span class="cell-label">Splorf Tag</span></div>
       <div class="cell" data-index="24/36"><span class="cell-label">Mibble</span></div>
       <div class="cell" data-index="25/36"><span class="cell-label">Drubnik</span></div>
