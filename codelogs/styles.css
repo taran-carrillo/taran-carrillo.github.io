@@ -11,10 +11,9 @@ h3 {
 }
 
 #grid {
-    column-count: 4;
-    column-height: 200px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 50px;
-    column-rule: 1px solid black;
     text-align: justify;
     font-size: 0.9rem;
     font-family: sans-serif;
@@ -40,4 +39,9 @@ h3 {
 #p4h {
     margin-top: 1.9rem;
     margin-bottom: 1.3rem;
+}
+
+.g1, .g2, .g3 {
+    
+    border-right: 1px solid black;
 }
