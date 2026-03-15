@@ -21,7 +21,21 @@ h3 {
 
 #p1h, #p2h, #p3h, #p4h {
     text-align: center;
-    font-size: 0.8rem;
-    text-decoration: underline;
+    font-size: 1.3rem;
+    font-weight: bold;
     
+}
+
+#p1h {
+    margin-top: -0.9rem;
+    margin-bottom: 1.3rem;
+}
+#p2h {
+    margin-bottom: 1.3rem;
+}
+#p3h {
+    margin-bottom: 1.3rem;
+}
+#p4h {
+    margin-bottom: 1.3rem;
 }
