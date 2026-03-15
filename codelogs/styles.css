@@ -40,6 +40,9 @@ h3 {
 }
 
 .g1, .g2, .g3 {
-    padding: 20px;
     border-right: 1px solid black;
+}
+
+.g1, .g2, .g3, .g4 {
+    padding: 20px;
 }
