@@ -14,4 +14,7 @@ h3 {
     column-count: 4;
     column-gap: 50px;
     column-rule: 1px solid black;
+    text-align: justify;
+    font-size: 0.5rem;
+    font-family: sans-serif;
 }
