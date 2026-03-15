@@ -23,6 +23,13 @@ height: 100vh;
 }
 
 #rhodtitle {
-    width: 50vw;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+
+#rhodtitle h1 {
+    position: absolute;
     font-size: 2em;
+    color: white;
 }
