@@ -18,3 +18,10 @@ h3 {
     font-size: 0.5rem;
     font-family: sans-serif;
 }
+
+#p1h, #p2h, #p3h, #p4h {
+    text-align: center;
+    font-size: 0.8rem;
+    text-decoration: underline;
+    
+}
