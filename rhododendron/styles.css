@@ -8,6 +8,11 @@ body {
     margin: 0;
 }
 
+header {
+width: 100vw;
+height: 100vh;
+}
+
 #rhodimg {
     position: absolute;
     width: 100vw;
@@ -18,5 +23,5 @@ body {
 }
 
 #rhodtitle {
-    
+
 }
