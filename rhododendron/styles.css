@@ -39,6 +39,14 @@ header {
     width: calc(100vw - 2em);
 }
 
+#rhodiePic2 {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(Pacific\ Rhododendron\ 3\ -\ Gary\ Monroe-1.jpeg);
+    background-size: cover;
+    background-position: center center;
+}
 
 /* PUT THE REST OF THE MOBILE BASELINE LAYOUT HERE */
 
