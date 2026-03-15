@@ -9,3 +9,9 @@ h3 {
     text-align: center;
     font-size: 1.5rem;
 }
+
+#grid {
+    column-count: 4;
+    column-gap: 50px;
+    column-rule: 1px solid black;
+}
