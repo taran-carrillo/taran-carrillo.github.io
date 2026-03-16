@@ -48,6 +48,21 @@ header {
     background-position: center center;
 }
 
+#bodytext {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+#bodytext p {
+    position: absolute;
+    top: 0;
+    left: 2em;
+    width: calc(100vw - 3em);
+    color: white;
+}
+
+
 /* PUT THE REST OF THE MOBILE BASELINE LAYOUT HERE */
 
 
