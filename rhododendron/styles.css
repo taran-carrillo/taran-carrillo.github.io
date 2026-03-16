@@ -1,4 +1,4 @@
-/* mobile-first design for Pacific Rhododendron */
+/* mobile-first design for Pacific Rhododendron layout */
 
 * {
     box-sizing: border-box;
@@ -58,6 +58,7 @@ header {
     position: absolute;
     color: white;
     font-size: 1.2em;
+    border: 3px black solid;
 }
 
 #p1 {
@@ -107,25 +108,48 @@ header {
     padding: 15px;
 }
 
-/* Screen Layout, computer landscape */
+/* PUT THE REST OF THE MOBILE BASELINE LAYOUT HERE */
 
 
 @media screen and (orientation: landscape) {
 
     #rhodiePicture {
-        width: 50vw;
+        width: 100vw;
     }
 
     #rhodieTitle {
-        width: 50vw;
-        left: 50vw;
-        background-color: #333;
+        width: 100vw;
+        left: 0;
     }
 
     #rhodieTitle h1 {
-        width: 45vw;
+        width: 55vw;
+        bottom: 0;
+        left: 1em;
     }
 
-    
-    
+    #p1 {
+        width: calc(100vw - 29em);
+        padding: 20px;
+        font-weight: bold;
+    }
+
+    #p2{
+        width: calc(100vw - 26em);
+        left: 23em;
+    }
+
+    #p3 {
+        width: calc(100vw - 36em)
+    }
+    #p4 {
+        position: absolute;
+        width: calc(100vw - 30em);
+        left: 28em;
+        bottom: 8em;
+    }
+
+    #p5 {
+        width: calc(100vw - 19em)
+    }
 }
