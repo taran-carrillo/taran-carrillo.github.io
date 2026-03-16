@@ -1,4 +1,4 @@
-/* mobile-first design for Pacific Rhododendron layout */
+/* mobile-first design for Pacific Rhododendron */
 
 * {
     box-sizing: border-box;
@@ -107,7 +107,7 @@ header {
     padding: 15px;
 }
 
-/* PUT THE REST OF THE MOBILE BASELINE LAYOUT HERE */
+/* Screen Layout, computer landscape */
 
 
 @media screen and (orientation: landscape) {
@@ -126,6 +126,6 @@ header {
         width: 45vw;
     }
 
-    /* PUT THE REST OF THE DESKTOP LAYOUT HERE */
+    
     
 }
