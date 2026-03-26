@@ -80,3 +80,8 @@ h3 {
 .h34 {
     text-decoration: underline;
 }
+
+span {
+    text-decoration: underline;
+    font-weight: bold;
+}
