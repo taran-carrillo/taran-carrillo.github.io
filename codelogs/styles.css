@@ -50,17 +50,33 @@ h3 {
 
 /* style for log4 */
 
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #log4 #body4 {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     column-gap: 20px;
-    column-rule: 1px solid black;
-    margin: 0;
-    padding: 0;    
+    column-rule: 1px solid black;    
 }
 
 .p4 {
     font-size: 0.9rem;
     text-align: justify;
-    font-family: Arial, Helvetica, sans-serif;
+}
+
+.h44 {
+    text-decoration: underline;
+    font-size: 1.2rem;
+}
+
+.ul4 {
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+.h34 {
+    text-decoration: underline;
 }
