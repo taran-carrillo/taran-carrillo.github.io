@@ -55,7 +55,7 @@ h3 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#log4 #body4 {
+#log4 .text4 {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     column-gap: 20px;
