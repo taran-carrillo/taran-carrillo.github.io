@@ -57,7 +57,7 @@ h3 {
 
 .log4 .text4 {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
     column-rule: 1px solid black;    
 }
