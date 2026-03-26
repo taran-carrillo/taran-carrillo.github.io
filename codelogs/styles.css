@@ -50,3 +50,17 @@ h3 {
 
 /* style for log4 */
 
+#log4 #body4 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 20px;
+    column-rule: 1px solid black;
+    margin: 0;
+    padding: 0;    
+}
+
+.p4 {
+    font-size: 0.9rem;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+}
