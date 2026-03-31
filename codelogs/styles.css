@@ -88,11 +88,8 @@ span {
 
 /* log5 start */
 
-#log5 {
-    background-color: aquamarine;
-}
-
-#head {
+.head {
     background-image: url(/codelogs/frog.webp);
+    background-position: 0,0;
 }
 
