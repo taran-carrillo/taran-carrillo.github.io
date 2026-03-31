@@ -89,7 +89,8 @@ span {
 /* log5 start */
 
 .head {
+    padding: 20px;
     background-image: url(/codelogs/frog.webp);
-    background-position: 0,0;
+    background-position: 50%, 50%;
+    background-size: 6%;
 }
-
