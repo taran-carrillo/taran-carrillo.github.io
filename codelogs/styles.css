@@ -102,3 +102,6 @@ p{
     font-size: 0.9rem
 }
 
+#d4 {
+    grid-template-columns: repeat(5, 1fr);
+}
