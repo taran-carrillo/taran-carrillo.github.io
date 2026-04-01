@@ -110,7 +110,8 @@ p{
 
 #d4 p {
     padding: 10px;
-    background-color: gray;
+    background-color: lightgray;
     border: 1px solid black;
     border-radius: 25px;
+    text-align: center;
 }
