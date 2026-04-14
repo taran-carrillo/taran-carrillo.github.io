@@ -4,10 +4,14 @@
     width: 90vw;
     height: 16em;
     display: grid;
+    grid-column-gap: 2px;
+    column-width: 20px;
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-template-areas:
-    '...'
-    '...';
+    '. . .'
+    '. . .'
+    '. . .';
     
 }
 
@@ -19,6 +23,27 @@ p.nutrition-values {
     margin: 15px;
     
 }
+
 .sub-title-labels {
     margin: 5px;
+}
+
+p#1v, p#1l {
+    grid-area: 1;
+}
+
+p#2l, p#2v {
+    grid-area: 2;
+}
+
+p#3v, p#3l {
+    grid-area: 3;
+}
+
+p#4v, p#4l {
+    grid-area: 4;
+}
+
+p#5v, p#5l {
+    grid-area: 5;
 }
