@@ -1,0 +1,24 @@
+#nutrition {
+    margin: 10px;
+    border: 2px solid black;
+    width: 90vw;
+    height: 16em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+    '...'
+    '...';
+    
+}
+
+div.nutrition-values, .nutrition-label {
+    margin: 10px;
+}
+
+p.nutrition-values {
+    margin: 15px;
+    
+}
+.sub-title-labels {
+    margin: 5px;
+}
