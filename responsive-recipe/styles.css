@@ -26,3 +26,12 @@
 h1{
     font-size: -webkit-xxx-large;
 }
+
+
+
+@media screen and (max-width: 600px){
+    #img1 {
+        max-width: fit-content;
+        max-height: 100px;
+    }
+}
