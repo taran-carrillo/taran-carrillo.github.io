@@ -4,15 +4,10 @@
     width: 90vw;
     height: 16em;
     display: grid;
-    grid-column-gap: 2px;
-    column-width: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-areas:
-    '. . .'
-    '. . .'
-    '. . .';
-    
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-template-rows: auto auto;
+   align-items: start;
+    gap: 16px 20px;
 }
 
 div.nutrition-values, .nutrition-label {
@@ -26,6 +21,7 @@ p.nutrition-values {
 
 .sub-title-labels {
     margin: 5px;
+    font-weight: bold;
 }
 
 p#1v, p#1l {
@@ -46,4 +42,8 @@ p#4v, p#4l {
 
 p#5v, p#5l {
     grid-area: 5;
+}
+
+.ingredients {
+    font-kerning: calc(100);
 }
