@@ -10,46 +10,16 @@
     gap: 16px 20px;
 }
 
-div.nutrition-values,
 .nutrition-label {
-    margin: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
-p.nutrition-values {
-    margin: 15px;
+.nutrition-items {
 
 }
+.nutrition-values {
 
-.sub-title-labels {
-    margin: 5px;
-    font-weight: bold;
-}
+ }
 
-p#1v,
-p#1l {
-    grid-area: 1;
-}
-
-p#2l,
-p#2v {
-    grid-area: 2;
-}
-
-p#3v,
-p#3l {
-    grid-area: 3;
-}
-
-p#4v,
-p#4l {
-    grid-area: 4;
-}
-
-p#5v,
-p#5l {
-    grid-area: 5;
-}
-
-.ingredients {
-    font-kerning: calc(100);
-}
+ 
