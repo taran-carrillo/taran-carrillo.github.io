@@ -15,17 +15,14 @@
     flex-direction: column;
 }
 
-.nutrition-items {
-
+.nutrition-item {
+    font-size: 1.1rem;
+    font-weight: 700;
 }
 .nutrition-values {
+ font-size: 0.9rem;    
+}
 
- }
-
- #subheader {
-    
- }
-
- h1 {
-    
- }
+h1{
+    font-size: -webkit-xxx-large;
+}
