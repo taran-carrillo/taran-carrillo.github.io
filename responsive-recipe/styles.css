@@ -1,22 +1,23 @@
 #nutrition {
-    margin: 10px;
     border: 2px solid black;
-    width: 90vw;
-    height: 16em;
+    border-radius: 8px;
+    padding: 20px; 
+    max-width: 600px;
     display: grid;
-   grid-template-columns: 1fr 1fr 1fr;
-   grid-template-rows: auto auto;
-   align-items: start;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    align-items: start;
     gap: 16px 20px;
 }
 
-div.nutrition-values, .nutrition-label {
+div.nutrition-values,
+.nutrition-label {
     margin: 10px;
 }
 
 p.nutrition-values {
     margin: 15px;
-    
+
 }
 
 .sub-title-labels {
@@ -24,23 +25,28 @@ p.nutrition-values {
     font-weight: bold;
 }
 
-p#1v, p#1l {
+p#1v,
+p#1l {
     grid-area: 1;
 }
 
-p#2l, p#2v {
+p#2l,
+p#2v {
     grid-area: 2;
 }
 
-p#3v, p#3l {
+p#3v,
+p#3l {
     grid-area: 3;
 }
 
-p#4v, p#4l {
+p#4v,
+p#4l {
     grid-area: 4;
 }
 
-p#5v, p#5l {
+p#5v,
+p#5l {
     grid-area: 5;
 }
 
