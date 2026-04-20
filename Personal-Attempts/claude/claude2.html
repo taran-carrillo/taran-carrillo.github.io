@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maren Solvik — Photography</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:      #0a0a0a;
+      --surface: #111;
+      --border:  #222;
+      --accent:  #d4ff4e;
+      --text:    #e2e2e2;
+      --muted:   #555;
+      --overlay: rgba(10,10,10,0.82);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      min-height: 100vh;
+      cursor: crosshair;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.035;
+      pointer-events: none;
+      z-index: 9999;
+    }
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.1rem 3rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(12px);
+    }
+    .nav-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 300;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--text);
+    }
+    .nav-name em { font-style: italic; color: var(--accent); }
+    .nav-filters { display: flex; gap: 0.25rem; list-style: none; }
+    .nav-filters button {
+      background: none; border: 1px solid transparent;
+      color: var(--muted); font-family: 'DM Mono', monospace;
+      font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 0.4rem 0.9rem; border-radius: 2px; cursor: crosshair;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .nav-filters button:hover, .nav-filters button.active {
+      color: var(--accent); border-color: var(--accent);
+    }
+    .nav-contact {
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-contact:hover { color: var(--accent); }
+    header {
+      padding: 4rem 3rem 3rem; border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 2rem;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 7rem); font-weight: 300;
+      line-height: 0.9; letter-spacing: -0.01em; color: var(--text);
+    }
+    h1 em { font-style: italic; display: block; color: var(--accent); }
+    .header-meta { text-align: right; }
+    .header-discipline {
+      font-size: 0.68rem; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--muted); line-height: 2;
+    }
+    .header-location {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1rem; color: var(--muted); margin-top: 0.5rem;
+    }
+    .grid-label {
+      padding: 1.2rem 3rem 0.8rem; font-size: 0.62rem;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
+      display: flex; justify-content: space-between;
+    }
+    .grid-wrapper { padding: 0 3rem 4rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(6, 160px);
+      gap: 8px;
+    }
+    .cell {
+      position: relative; overflow: hidden; border-radius: 3px;
+      border: 1px solid var(--border); background: var(--surface);
+      cursor: pointer; opacity: 0; animation: fadeUp 0.5s forwards;
+    }
+    .cell:nth-child(1)  { animation-delay: 0.03s; } .cell:nth-child(2)  { animation-delay: 0.06s; }
+    .cell:nth-child(3)  { animation-delay: 0.09s; } .cell:nth-child(4)  { animation-delay: 0.12s; }
+    .cell:nth-child(5)  { animation-delay: 0.15s; } .cell:nth-child(6)  { animation-delay: 0.18s; }
+    .cell:nth-child(7)  { animation-delay: 0.21s; } .cell:nth-child(8)  { animation-delay: 0.24s; }
+    .cell:nth-child(9)  { animation-delay: 0.27s; } .cell:nth-child(10) { animation-delay: 0.30s; }
+    .cell:nth-child(11) { animation-delay: 0.33s; } .cell:nth-child(12) { animation-delay: 0.36s; }
+    .cell:nth-child(13) { animation-delay: 0.39s; } .cell:nth-child(14) { animation-delay: 0.42s; }
+    .cell:nth-child(15) { animation-delay: 0.45s; } .cell:nth-child(16) { animation-delay: 0.48s; }
+    .cell:nth-child(17) { animation-delay: 0.51s; } .cell:nth-child(18) { animation-delay: 0.54s; }
+    .cell:nth-child(19) { animation-delay: 0.57s; } .cell:nth-child(20) { animation-delay: 0.60s; }
+    .cell:nth-child(21) { animation-delay: 0.63s; } .cell:nth-child(22) { animation-delay: 0.66s; }
+    .cell:nth-child(23) { animation-delay: 0.69s; } .cell:nth-child(24) { animation-delay: 0.72s; }
+    .cell:nth-child(25) { animation-delay: 0.75s; } .cell:nth-child(26) { animation-delay: 0.78s; }
+    .cell:nth-child(27) { animation-delay: 0.81s; } .cell:nth-child(28) { animation-delay: 0.84s; }
+    .cell:nth-child(29) { animation-delay: 0.87s; } .cell:nth-child(30) { animation-delay: 0.90s; }
+    .cell:nth-child(31) { animation-delay: 0.93s; } .cell:nth-child(32) { animation-delay: 0.96s; }
+    .cell:nth-child(33) { animation-delay: 0.99s; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .cell img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.4s ease;
+      filter: saturate(0.8) brightness(0.95);
+    }
+    .cell-overlay {
+      position: absolute; inset: 0; background: var(--overlay);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 1.1rem; opacity: 0; transition: opacity 0.3s ease;
+    }
+    .cell:hover .cell-overlay { opacity: 1; }
+    .cell:hover img { transform: scale(1.07); filter: saturate(1) brightness(0.75); }
+    .cell-title {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 1rem; font-weight: 300; color: #fff; line-height: 1.2;
+    }
+    .cell-meta {
+      font-size: 0.58rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: rgba(255,255,255,0.5); margin-top: 0.3rem;
+    }
+    .cell-view {
+      position: absolute; top: 0.9rem; right: 0.9rem;
+      font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); border: 1px solid var(--accent);
+      padding: 0.25rem 0.5rem; border-radius: 2px;
+    }
+    .cell--wide  { grid-column: span 3; }
+    .cell--tall  { grid-row: span 2; }
+    .cell--wide2 { grid-column: span 2; }
+    .cell--hidden { display: none; }
+    #lightbox {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(5,5,5,0.97);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    #lightbox.open { opacity: 1; pointer-events: all; }
+    .lb-img-wrap { position: relative; max-width: 82vw; max-height: 82vh; }
+    .lb-img-wrap img { max-width: 100%; max-height: 82vh; object-fit: contain; display: block; border-radius: 2px; }
+    .lb-meta { position: absolute; bottom: -2.8rem; left: 0; display: flex; gap: 1.5rem; align-items: baseline; }
+    .lb-title { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--text); }
+    .lb-info   { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+    .lb-close {
+      position: fixed; top: 1.5rem; right: 2rem;
+      background: none; border: none; color: var(--muted);
+      font-family: 'DM Mono', monospace; font-size: 0.65rem;
+      letter-spacing: 0.2em; text-transform: uppercase; cursor: crosshair; transition: color 0.2s;
+    }
+    .lb-close:hover { color: var(--accent); }
+    .lb-arrow {
+      position: fixed; top: 50%; transform: translateY(-50%);
+      background: none; border: 1px solid var(--border); color: var(--muted);
+      font-size: 1rem; width: 2.5rem; height: 2.5rem;
+      display: flex; align-items: center; justify-content: center;
+      cursor: crosshair; border-radius: 2px; transition: color 0.2s, border-color 0.2s;
+    }
+    .lb-arrow:hover { color: var(--accent); border-color: var(--accent); }
+    .lb-arrow--prev { left: 1.5rem; }
+    .lb-arrow--next { right: 1.5rem; }
+    .lb-counter {
+      position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      font-size: 0.6rem; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase;
+    }
+    footer {
+      border-top: 1px solid var(--border); padding: 2rem 3rem;
+      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 1rem;
+    }
+    .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-weight: 300; letter-spacing: 0.1em; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; }
+    .footer-links a {
+      font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-copy { font-size: 0.6rem; letter-spacing: 0.12em; color: var(--muted); text-align: right; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Maren <em>Solvik</em></span>
+  <ul class="nav-filters">
+    <li><button class="active" data-filter="all">All</button></li>
+    <li><button data-filter="portrait">Portrait</button></li>
+    <li><button data-filter="landscape">Landscape</button></li>
+    <li><button data-filter="street">Street</button></li>
+    <li><button data-filter="abstract">Abstract</button></li>
+  </ul>
+  <a href="mailto:hello@marensolvik.com" class="nav-contact">hello@marensolvik.com</a>
+</nav>
+
+<header>
+  <h1>Maren<em>Solvik</em></h1>
+  <div class="header-meta">
+    <div class="header-discipline">Documentary &amp; Portrait<br/>Fine Art Photography</div>
+    <div class="header-location">Oslo — Berlin — New York</div>
+  </div>
+</header>
+
+<div class="grid-label">
+  <span>// Selected Works 2019–2024</span>
+  <span id="count-label">33 photographs</span>
+</div>
+
+<div class="grid-wrapper">
+  <div class="grid" id="grid">
+
+    <!-- ROW 1 -->
+    <div class="cell cell--wide" data-category="portrait" data-title="Ingrid, Oslo" data-meta="Portrait · 2023 · Leica M11">
+      <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=900&q=80" alt="Ingrid, Oslo"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Ingrid, Oslo</div><div class="cell-meta">Portrait · 2023</div></div>
+    </div>
+    <div class="cell" data-category="landscape" data-title="Fjord Light" data-meta="Landscape · 2022 · Hasselblad X2D">
+      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=600&q=80" alt="Fjord Light"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Fjord Light</div><div class="cell-meta">Landscape · 2022</div></div>
+    </div>
+    <div class="cell" data-category="street" data-title="Mitte, 04:12" data-meta="Street · 2023 · Ricoh GR IIIx">
+      <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&q=80" alt="Mitte, 04:12"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Mitte, 04:12</div><div class="cell-meta">Street · 2023</div></div>
+    </div>
+    <div class="cell" data-category="abstract" data-title="Mineral No. 7" data-meta="Abstract · 2021 · Phase One">
+      <img src="https://images.unsplash.com/photo-1550859492-d5da9d8e45f3?w=600&q=80" alt="Mineral No. 7"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Mineral No. 7</div><div class="cell-meta">Abstract · 2021</div></div>
+    </div>
+
+    <!-- ROW 2 -->
+    <div class="cell" data-category="street" data-title="Crossing, Shibuya" data-meta="Street · 2019 · Leica Q2">
+      <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&q=80" alt="Crossing, Shibuya"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Crossing, Shibuya</div><div class="cell-meta">Street · 2019</div></div>
+    </div>
+    <div class="cell" data-category="portrait" data-title="The Elder" data-meta="Portrait · 2020 · Nikon Z9">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="The Elder"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">The Elder</div><div class="cell-meta">Portrait · 2020</div></div>
+    </div>
+    <div class="cell" data-category="landscape" data-title="Arctic Silence" data-meta="Landscape · 2022 · Hasselblad X2D">
+      <img src="https://images.unsplash.com/photo-1517783999520-f068d7431a60?w=600&q=80" alt="Arctic Silence"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Arctic Silence</div><div class="cell-meta">Landscape · 2022</div></div>
+    </div>
+    <div class="cell" data-category="abstract" data-title="Form Study III" data-meta="Abstract · 2024 · Phase One">
+      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&q=80" alt="Form Study III"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Form Study III</div><div class="cell-meta">Abstract · 2024</div></div>
+    </div>
+    <div class="cell" data-category="portrait" data-title="Elsa, Afternoon" data-meta="Portrait · 2023 · Leica M11">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80" alt="Elsa, Afternoon"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Elsa, Afternoon</div><div class="cell-meta">Portrait · 2023</div></div>
+    </div>
+    <div class="cell" data-category="street" data-title="Rue Oberkampf" data-meta="Street · 2021 · Ricoh GR IIIx">
+      <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600&q=80" alt="Rue Oberkampf"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Rue Oberkampf</div><div class="cell-meta">Street · 2021</div></div>
+    </div>
+
+    <!-- ROW 3 -->
+    <div class="cell cell--tall" data-category="portrait" data-title="Solitude" data-meta="Portrait · 2024 · Leica M11">
+      <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=600&q=80" alt="Solitude"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Solitude</div><div class="cell-meta">Portrait · 2024</div></div>
+    </div>
+    <div class="cell" data-category="landscape" data-title="Dusk, Lofoten" data-meta="Landscape · 2021 · Hasselblad X2D">
+      <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&q=80" alt="Dusk, Lofoten"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Dusk, Lofoten</div><div class="cell-meta">Landscape · 2021</div></div>
+    </div>
+    <div class="cell" data-category="abstract" data-title="Shadow Plane" data-meta="Abstract · 2022 · Phase One">
+      <img src="https://images.unsplash.com/photo-1604076913837-52ab5629fde9?w=600&q=80" alt="Shadow Plane"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Shadow Plane</div><div class="cell-meta">Abstract · 2022</div></div>
+    </div>
+    <div class="cell" data-category="street" data-title="Canal, Amsterdam" data-meta="Street · 2020 · Leica Q2">
+      <img src="https://images.unsplash.com/photo-1576924542622-772281b13df4?w=600&q=80" alt="Canal, Amsterdam"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Canal, Amsterdam</div><div class="cell-meta">Street · 2020</div></div>
+    </div>
+    <div class="cell" data-category="landscape" data-title="Pine Fog" data-meta="Landscape · 2023 · Hasselblad X2D">
+      <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=600&q=80" alt="Pine Fog"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Pine Fog</div><div class="cell-meta">Landscape · 2023</div></div>
+    </div>
+
+    <!-- ROW 4 (tall cell col 1 continues) -->
+    <div class="cell cell--wide2" data-category="landscape" data-title="Glacier Study" data-meta="Landscape · 2022 · Hasselblad X2D">
+      <img src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?w=800&q=80" alt="Glacier Study"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Glacier Study</div><div class="cell-meta">Landscape · 2022</div></div>
+    </div>
+    <div class="cell" data-category="portrait" data-title="Henrik" data-meta="Portrait · 2023 · Nikon Z9">
+      <img src="https://images.unsplash.com/photo-1500048993953-d23a436266cf?w=600&q=80" alt="Henrik"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Henrik</div><div class="cell-meta">Portrait · 2023</div></div>
+    </div>
+    <div class="cell" data-category="abstract" data-title="Residue I" data-meta="Abstract · 2020 · Phase One">
+      <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&q=80" alt="Residue I"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Residue I</div><div class="cell-meta">Abstract · 2020</div></div>
+    </div>
+    <div class="cell" data-category="street" data-title="Subway, 2 Train" data-meta="Street · 2019 · Ricoh GR IIIx">
+      <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=80" alt="Subway, 2 Train"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Subway, 2 Train</div><div class="cell-meta">Street · 2019</div></div>
+    </div>
+
+    <!-- ROW 5 -->
+    <div class="cell" data-category="abstract" data-title="Tide Form" data-meta="Abstract · 2023 · Phase One">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Tide Form"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Tide Form</div><div class="cell-meta">Abstract · 2023</div></div>
+    </div>
+    <div class="cell" data-category="portrait" data-title="Self, Berlin" data-meta="Portrait · 2024 · Leica M11">
+      <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&q=80" alt="Self, Berlin"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Self, Berlin</div><div class="cell-meta">Portrait · 2024</div></div>
+    </div>
+    <div class="cell cell--wide" data-category="landscape" data-title="The Atlantic, February" data-meta="Landscape · 2023 · Hasselblad X2D">
+      <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=900&q=80" alt="The Atlantic, February"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">The Atlantic, February</div><div class="cell-meta">Landscape · 2023</div></div>
+    </div>
+    <div class="cell" data-category="street" data-title="Kreuzberg Rain" data-meta="Street · 2022 · Leica Q2">
+      <img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?w=600&q=80" alt="Kreuzberg Rain"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Kreuzberg Rain</div><div class="cell-meta">Street · 2022</div></div>
+    </div>
+
+    <!-- ROW 6 -->
+    <div class="cell" data-category="portrait" data-title="Lena, Window" data-meta="Portrait · 2021 · Nikon Z9">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80" alt="Lena, Window"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Lena, Window</div><div class="cell-meta">Portrait · 2021</div></div>
+    </div>
+    <div class="cell" data-category="abstract" data-title="Glass and Light" data-meta="Abstract · 2024 · Phase One">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Glass and Light"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Glass &amp; Light</div><div class="cell-meta">Abstract · 2024</div></div>
+    </div>
+    <div class="cell" data-category="street" data-title="Market, Marrakech" data-meta="Street · 2019 · Ricoh GR IIIx">
+      <img src="https://images.unsplash.com/photo-1539020140153-e479b8c22e70?w=600&q=80" alt="Market, Marrakech"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Market, Marrakech</div><div class="cell-meta">Street · 2019</div></div>
+    </div>
+    <div class="cell" data-category="landscape" data-title="Midnight Sun" data-meta="Landscape · 2024 · Hasselblad X2D">
+      <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?w=600&q=80" alt="Midnight Sun"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Midnight Sun</div><div class="cell-meta">Landscape · 2024</div></div>
+    </div>
+    <div class="cell" data-category="portrait" data-title="The Fisherman" data-meta="Portrait · 2020 · Leica M11">
+      <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=600&q=80" alt="The Fisherman"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">The Fisherman</div><div class="cell-meta">Portrait · 2020</div></div>
+    </div>
+    <div class="cell" data-category="abstract" data-title="Erosion Study" data-meta="Abstract · 2022 · Phase One">
+      <img src="https://images.unsplash.com/photo-1564951434112-64d74cc2a2d7?w=600&q=80" alt="Erosion Study"/>
+      <div class="cell-overlay"><span class="cell-view">View</span><div class="cell-title">Erosion Study</div><div class="cell-meta">Abstract · 2022</div></div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-name">Maren Solvik</div>
+  <div class="footer-links">
+    <a href="#">Instagram</a>
+    <a href="#">VSCO</a>
+    <a href="#">Are.na</a>
+    <a href="mailto:hello@marensolvik.com">Contact</a>
+  </div>
+  <div class="footer-copy">© 2024 Maren Solvik. All rights reserved.</div>
+</footer>
+
+<div id="lightbox">
+  <button class="lb-close" id="lb-close">[ esc ] close</button>
+  <button class="lb-arrow lb-arrow--prev" id="lb-prev">&#8592;</button>
+  <div class="lb-img-wrap">
+    <img id="lb-img" src="" alt=""/>
+    <div class="lb-meta">
+      <span class="lb-title" id="lb-title"></span>
+      <span class="lb-info"  id="lb-info"></span>
+    </div>
+  </div>
+  <button class="lb-arrow lb-arrow--next" id="lb-next">&#8594;</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<script>
+  // FILTER
+  const filterBtns = document.querySelectorAll('.nav-filters button');
+  const cells = Array.from(document.querySelectorAll('.cell'));
+  const countLabel = document.getElementById('count-label');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      let visible = 0;
+      cells.forEach(cell => {
+        const match = f === 'all' || cell.dataset.category === f;
+        cell.classList.toggle('cell--hidden', !match);
+        if (match) visible++;
+      });
+      countLabel.textContent = visible + ' photograph' + (visible !== 1 ? 's' : '');
+    });
+  });
+
+  // LIGHTBOX
+  const lb        = document.getElementById('lightbox');
+  const lbImg     = document.getElementById('lb-img');
+  const lbTitle   = document.getElementById('lb-title');
+  const lbInfo    = document.getElementById('lb-info');
+  const lbCounter = document.getElementById('lb-counter');
+  const lbClose   = document.getElementById('lb-close');
+  const lbPrev    = document.getElementById('lb-prev');
+  const lbNext    = document.getElementById('lb-next');
+  let currentIndex = 0;
+
+  function visibleCells() { return cells.filter(c => !c.classList.contains('cell--hidden')); }
+
+  function openLightbox(index) {
+    const vc = visibleCells();
+    currentIndex = index;
+    const cell = vc[currentIndex];
+    const img  = cell.querySelector('img');
+    lbImg.src  = img.src.replace(/w=\d+/, 'w=1400');
+    lbTitle.textContent = cell.dataset.title;
+    lbInfo.textContent  = cell.dataset.meta;
+    lbCounter.textContent = (currentIndex + 1) + ' / ' + vc.length;
+    lb.classList.add('open');
+  }
+
+  function closeLightbox() { lb.classList.remove('open'); }
+
+  function navigate(dir) {
+    const vc = visibleCells();
+    currentIndex = (currentIndex + dir + vc.length) % vc.length;
+    openLightbox(currentIndex);
+  }
+
+  cells.forEach(cell => {
+    cell.addEventListener('click', () => {
+      const vc  = visibleCells();
+      const idx = vc.indexOf(cell);
+      if (idx !== -1) openLightbox(idx);
+    });
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click',  () => navigate(-1));
+  lbNext.addEventListener('click',  () => navigate(1));
+  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape')      closeLightbox();
+    if (e.key === 'ArrowLeft')   navigate(-1);
+    if (e.key === 'ArrowRight')  navigate(1);
+  });
+</script>
+</body>
+</html>
