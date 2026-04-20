@@ -242,19 +242,31 @@ function checkMatch(){
     const isMatch = firstCard.dataset.image === secondCard.dataset.image;
 
     if(isMatch){
-        firstCard.classList.add("matched");
-        secondCard.classList.add("matched");
 
-        matches++;
-        document.getElementById("score").textContent = matches;
+    firstCard.classList.add("matched");
+    secondCard.classList.add("matched");
 
-        playSound("matchSound");
+    // Force animation restart (small trick)
+    firstCard.style.animation = "none";
+    secondCard.style.animation = "none";
 
-        resetTurn();
+    firstCard.offsetHeight; // trigger reflow
+    secondCard.offsetHeight;
 
-        if(matches === PAIRS){
-            setTimeout(() => alert("You won! 🎉"), 300);
-        }
+    firstCard.style.animation = "";
+    secondCard.style.animation = "";
+
+    matches++;
+    document.getElementById("score").textContent = matches;
+
+    playSound("matchSound");
+
+    resetTurn();
+
+    if(matches === PAIRS){
+        setTimeout(() => alert("You won! 🎉"), 300);
+    }
+
 
     } else {
         playSound("wrongSound");
