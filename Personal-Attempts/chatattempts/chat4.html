@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memory Match Game</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
+    text-align:center;
+}
+
+header{
+    background:#222;
+    color:white;
+    padding:20px;
+}
+
+.subheader{
+    background:#444;
+    color:white;
+    padding:10px;
+}
+
+#game-info{
+    margin:10px;
+    font-size:18px;
+}
+
+button{
+    padding:8px 16px;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+/* Grid */
+
+.grid-container{
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 100px);
+    gap:10px;
+    padding:20px;
+    max-width:800px;
+    margin:auto;
+}
+
+/* Flip Card */
+
+.grid-item{
+    perspective:1000px;
+}
+
+.card{
+    width:100%;
+    height:100%;
+    position:relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.card.flipped{
+    transform: rotateY(180deg);
+}
+
+.card-face{
+    position:absolute;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border:1px solid #aaa;
+    backface-visibility:hidden;
+    overflow:hidden;
+}
+
+.card-front{
+    background:#ddd;
+}
+
+.card-back{
+    background:white;
+    transform: rotateY(180deg);
+}
+
+.card-back img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Matched styling */
+.card.matched{
+    opacity:0.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Memory Match</h1>
+</header>
+
+<div class="subheader">
+    Flip cards and match all the pairs!
+</div>
+
+<div id="game-info">
+    Matches: <span id="score">0</span> / 18
+</div>
+
+<button onclick="startGame()">Restart Game</button>
+
+<div class="grid-container" id="grid"></div>
+
+<!-- Sounds -->
+<audio id="flipSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+<audio id="matchSound" src="https://www.soundjay.com/buttons/sounds/button-4.mp3"></audio>
+<audio id="wrongSound" src="https://www.soundjay.com/buttons/sounds/button-10.mp3"></audio>
+
+<script>
+
+const GRID_SIZE = 36;
+const PAIRS = 18;
+
+let firstCard = null;
+let secondCard = null;
+let lockBoard = false;
+let matches = 0;
+
+// Distinct images (clear differences)
+const images = [
+    {src:"https://picsum.photos/id/1015/200", alt:"Mountain landscape"},
+    {src:"https://picsum.photos/id/1025/200", alt:"Golden retriever dog"},
+    {src:"https://picsum.photos/id/1035/200", alt:"Forest trees"},
+    {src:"https://picsum.photos/id/1045/200", alt:"Desert dunes"},
+    {src:"https://picsum.photos/id/1055/200", alt:"Ocean waves"},
+    {src:"https://picsum.photos/id/1065/200", alt:"Snowy mountains"},
+    {src:"https://picsum.photos/id/1075/200", alt:"City skyline"},
+    {src:"https://picsum.photos/id/1085/200", alt:"Bridge at sunset"},
+    {src:"https://picsum.photos/id/1095/200", alt:"River valley"},
+    {src:"https://picsum.photos/id/110/200", alt:"Flowers close-up"},
+    {src:"https://picsum.photos/id/111/200", alt:"Beach sand"},
+    {src:"https://picsum.photos/id/112/200", alt:"Foggy forest"},
+    {src:"https://picsum.photos/id/113/200", alt:"Road in countryside"},
+    {src:"https://picsum.photos/id/114/200", alt:"Waterfall"},
+    {src:"https://picsum.photos/id/115/200", alt:"Night sky stars"},
+    {src:"https://picsum.photos/id/116/200", alt:"Cliffside view"},
+    {src:"https://picsum.photos/id/117/200", alt:"Lake reflection"},
+    {src:"https://picsum.photos/id/118/200", alt:"Autumn leaves"}
+];
+
+// Duplicate and shuffle
+function generateCards(){
+    let cardData = [...images, ...images];
+
+    cardData.sort(() => Math.random() - 0.5);
+
+    return cardData;
+}
+
+// Create grid
+function createGrid(){
+    const grid = document.getElementById("grid");
+    grid.innerHTML = "";
+
+    const cards = generateCards();
+
+    cards.forEach((data, index) => {
+
+        const cell = document.createElement("div");
+        cell.classList.add("grid-item");
+
+        const card = document.createElement("div");
+        card.classList.add("card");
+        card.dataset.index = index;
+        card.dataset.image = data.src;
+
+        const front = document.createElement("div");
+        front.classList.add("card-face", "card-front");
+
+        const back = document.createElement("div");
+        back.classList.add("card-face", "card-back");
+        back.innerHTML = `<img src="${data.src}" alt="${data.alt}">`;
+
+        card.appendChild(front);
+        card.appendChild(back);
+        cell.appendChild(card);
+
+        card.addEventListener("click", handleClick);
+
+        grid.appendChild(cell);
+    });
+}
+
+// Handle click
+function handleClick(e){
+    const card = e.currentTarget;
+
+    if(lockBoard) return;
+    if(card === firstCard) return;
+    if(card.classList.contains("matched")) return;
+
+    playSound("flipSound");
+
+    card.classList.add("flipped");
+
+    if(!firstCard){
+        firstCard = card;
+        return;
+    }
+
+    secondCard = card;
+    lockBoard = true;
+
+    checkMatch();
+}
+
+function checkMatch(){
+    const isMatch = firstCard.dataset.image === secondCard.dataset.image;
+
+    if(isMatch){
+        firstCard.classList.add("matched");
+        secondCard.classList.add("matched");
+
+        matches++;
+        document.getElementById("score").textContent = matches;
+
+        playSound("matchSound");
+
+        resetTurn();
+
+        if(matches === PAIRS){
+            setTimeout(() => alert("You won! 🎉"), 300);
+        }
+
+    } else {
+        playSound("wrongSound");
+
+        setTimeout(() => {
+            firstCard.classList.remove("flipped");
+            secondCard.classList.remove("flipped");
+            resetTurn();
+        }, 800);
+    }
+}
+
+function resetTurn(){
+    [firstCard, secondCard] = [null, null];
+    lockBoard = false;
+}
+
+// Sounds
+function playSound(id){
+    const sound = document.getElementById(id);
+    sound.currentTime = 0;
+    sound.play();
+}
+
+// Start game
+function startGame(){
+    matches = 0;
+    document.getElementById("score").textContent = matches;
+    createGrid();
+}
+
+// Init
+startGame();
+
+</script>
+
+</body>
+</html>
