@@ -208,3 +208,12 @@ h1 {
     margin-top: 10px;
 }
 
+.journal-entry {
+    background: linear-gradient(135deg, #ffffff 0%, #f9f9f9 100%);
+    border-left: 4px solid #3498db; /* Adds a "notebook" spine look */
+}
+
+.entry-text {
+    font-family: 'Georgia', serif; /* Makes it feel more like a journal */
+    font-style: italic;
+}
