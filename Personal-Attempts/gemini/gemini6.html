@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6x6 Grid Layout</title>
+    <link rel="stylesheet" href="style.css">
+</header>
+
+<body>
+    <header>
+    <h1>The Daily Micro-Journal</h1>
+    <p class="subheader">One small thought, thirty-six days at a time.</p>
+</header>
+
+<main class="grid-container" id="journal-grid"></main>
+<div id="entry-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div id="modal-body">
+    </div>
+<div id="modal-form" style="display: none;">
+    <textarea id="entry-input" placeholder="What's on your mind?" rows="4" style="width: 100%; margin-top: 15px; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
+    <button id="save-btn" style="margin-top: 15px; padding: 10px 20px; background: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">Save Entry</button>
+</div>
+    </div>
+</div>
+
+    <script>
+    // 1. Data Store: Add your entries here
+const journalEntries = [
+    { day: 1, text: "Finally started the grid project. The code is clean.", type: "text" },
+    { day: 2, image: "https://placedog.net/500/500?id=1", type: "photo" },
+    { day: 3, text: "Learned about JS loops today. No more copy-pasting!", type: "text", highlight: true },
+    { day: 7, image: "https://placedog.net/500/500?id=2", type: "photo" },
+    { day: 15, image: "https://placedog.net/500/500?id=3", type: "photo" }
+];
+
+const gridContainer = document.getElementById('journal-grid');
+
+// 2. Loop to generate 36 squares
+const modal = document.getElementById('entry-modal');
+const modalBody = document.getElementById('modal-body');
+const closeBtn = document.querySelector('.close-button');
+
+
+
+// The SAVE function
+saveBtn.onclick = () => {
+    const text = entryInput.value;
+    if (text.trim() !== "") {
+        // 1. Add to our data array
+        journalEntries.push({
+            day: currentActiveDay,
+            text: text,
+            type: "text"
+        });
+
+        // 2. Close modal
+        modal.style.display = "none";
+
+        // 3. RE-RENDER the grid
+        renderGrid(); 
+    }
+};
+
+// Function to open the modal
+function openEntry(entry, dayNumber) {
+    modal.style.display = "block";
+    
+    if (entry) {
+        let content = `<h2>Day ${dayNumber}</h2>`;
+        if (entry.type === 'photo') {
+            content += `<img src="${entry.image}" class="modal-img">`;
+        } else {
+            content += `<p style="font-size: 1.2rem; margin-top: 20px;">${entry.text}</p>`;
+        }
+        modalBody.innerHTML = content;
+    } else {
+        modalBody.innerHTML = `<h2>Day ${dayNumber}</h2><p>No entry for this day yet.</p>`;
+    }
+}
+
+// Update your loop to include the click event
+for (let i = 1; i <= 36; i++) {
+    const item = document.createElement('div');
+    item.classList.add('grid-item');
+    
+    // Find the data for this day
+    const entry = journalEntries.find(e => e.day === i);
+
+    // 1. CREATE PREVIEW: Day Number (Always visible)
+    const daySpan = document.createElement('span');
+    daySpan.classList.add('day-number');
+    daySpan.textContent = i.toString().padStart(2, '0');
+    item.appendChild(daySpan); // This puts it in the grid box immediately
+
+    // 2. CREATE PREVIEW: Content (Visible if entry exists)
+    if (entry) {
+        if (entry.type === "photo") {
+            const img = document.createElement('img');
+            img.src = entry.image;
+            item.appendChild(img);
+        } else {
+            const p = document.createElement('p');
+            p.classList.add('entry-text');
+            p.textContent = entry.text;
+            item.appendChild(p);
+        }
+    } else {
+        item.classList.add('future-day');
+    }
+
+    // 3. THE CLICK TRIGGER: This only handles the POPUP logic
+    item.addEventListener('click', () => {
+        openEntry(entry, i);
+    });
+
+    // 4. FINALLY: Add the fully-formed box to the grid
+    gridContainer.appendChild(item);
+}
+
+// Close modal logic
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = (event) => { if (event.target == modal) modal.style.display = "none"; }
+    
+
+
+    // Always add the day number
+    const daySpan = document.createElement('span');
+    daySpan.classList.add('day-number');
+    daySpan.textContent = i.toString().padStart(2, '0');
+    item.appendChild(daySpan);
+
+    if (entry) {
+        // If it's a photo entry
+        if (entry.type === "photo") {
+            const img = document.createElement('img');
+            img.src = entry.image;
+            img.alt = "Daily entry";
+            item.appendChild(img);
+        } 
+        // If it's a text entry
+        else {
+            const p = document.createElement('p');
+            p.classList.add('entry-text');
+            p.textContent = entry.text;
+            item.appendChild(p);
+        }
+
+        // Apply highlight if the data says so
+        if (entry.highlight) {
+            item.classList.add('highlight');
+        }
+    } else {
+        // If no entry exists, mark it as a future day
+        item.classList.add('future-day');
+    }
+
+const modalForm = document.getElementById('modal-form');
+const entryInput = document.getElementById('entry-input');
+const saveBtn = document.getElementById('save-btn');
+let currentActiveDay = null; // To track which day we are editing
+
+function openEntry(entry, dayNumber) {
+    modal.style.display = "block";
+    currentActiveDay = dayNumber; // Store the day for the save function
+
+    if (entry) {
+        // VIEW MODE: Show existing content
+        modalForm.style.display = "none";
+        modalBody.style.display = "block";
+        let content = `<h2>Day ${dayNumber}</h2>`;
+        content += (entry.type === 'photo') 
+            ? `<img src="${entry.image}" class="modal-img">` 
+            : `<p style="font-size: 1.2rem; margin-top: 20px;">${entry.text}</p>`;
+        modalBody.innerHTML = content;
+    } else {
+        // EDIT MODE: Show the form for empty days
+        modalBody.style.display = "block";
+        modalBody.innerHTML = `<h2>Day ${dayNumber}</h2><p>Write your entry for today:</p>`;
+        modalForm.style.display = "block";
+        entryInput.value = ""; // Clear previous input
+    }
+}
+
+</script>
+</body>
+
+
