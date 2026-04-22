@@ -33,11 +33,8 @@
 
     <script>
         // 1. DATA: Make sure this is at the very top
-let journalEntries = [
-    { day: 1, text: "The code is working again!", type: "text" },
-    { day: 2, image: "https://placedog.net/500/500?id=1", type: "photo" },
-    { day: 6, text: "Final project almost complete!", type: "text" }
-];
+// Check LocalStorage first, otherwise default to an empty array
+let journalEntries = JSON.parse(localStorage.getItem('myJournalData')) || [];
 
 // 2. ELEMENTS: Make sure these IDs match your HTML exactly
 const gridContainer = document.getElementById('journal-grid');
