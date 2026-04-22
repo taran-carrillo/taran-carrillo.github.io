@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6x6 Grid Layout</title>
+    <link rel="stylesheet" href="style.css">
+</header>
+
+<body>
+    <header>
+    <h1>The Daily Micro-Journal</h1>
+    <p class="subheader">One small thought, thirty-six days at a time.</p>
+</header>
+
+<main class="grid-container" id="journal-grid"></main>
+<div id="entry-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div id="modal-body">
+            </div>
+    </div>
+</div>
+
+    <script>
+    // 1. Data Store: Add your entries here
+const journalEntries = [
+    { day: 1, text: "Finally started the grid project. The code is clean.", type: "text" },
+    { day: 2, image: "https://placedog.net/500/500?id=1", type: "photo" },
+    { day: 3, text: "Learned about JS loops today. No more copy-pasting!", type: "text", highlight: true },
+    { day: 7, image: "https://placedog.net/500/500?id=2", type: "photo" },
+    { day: 15, image: "https://placedog.net/500/500?id=3", type: "photo" }
+];
+
+const gridContainer = document.getElementById('journal-grid');
+
+// 2. Loop to generate 36 squares
+const modal = document.getElementById('entry-modal');
+const modalBody = document.getElementById('modal-body');
+const closeBtn = document.querySelector('.close-button');
+
+// Function to open the modal
+function openEntry(entry, dayNumber) {
+    modal.style.display = "block";
+    
+    if (entry) {
+        let content = `<h2>Day ${dayNumber}</h2>`;
+        if (entry.type === 'photo') {
+            content += `<img src="${entry.image}" class="modal-img">`;
+        } else {
+            content += `<p style="font-size: 1.2rem; margin-top: 20px;">${entry.text}</p>`;
+        }
+        modalBody.innerHTML = content;
+    } else {
+        modalBody.innerHTML = `<h2>Day ${dayNumber}</h2><p>No entry for this day yet.</p>`;
+    }
+}
+
+// Update your loop to include the click event
+for (let i = 1; i <= 36; i++) {
+    const item = document.createElement('div');
+    item.classList.add('grid-item');
+    const entry = journalEntries.find(e => e.day === i);
+    
+    // ... (keep the same daySpan and entry-logic from before) ...
+
+    // ADD THIS: The Click Listener
+    item.addEventListener('click', () => openEntry(entry, i));
+
+    gridContainer.appendChild(item);
+}
+
+// Close modal logic
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = (event) => { if (event.target == modal) modal.style.display = "none"; }
+    
+    // Check if we have an entry for this specific day
+    const entry = journalEntries.find(e => e.day === i);
+
+    // Always add the day number
+    const daySpan = document.createElement('span');
+    daySpan.classList.add('day-number');
+    daySpan.textContent = i.toString().padStart(2, '0');
+    item.appendChild(daySpan);
+
+    if (entry) {
+        // If it's a photo entry
+        if (entry.type === "photo") {
+            const img = document.createElement('img');
+            img.src = entry.image;
+            img.alt = "Daily entry";
+            item.appendChild(img);
+        } 
+        // If it's a text entry
+        else {
+            const p = document.createElement('p');
+            p.classList.add('entry-text');
+            p.textContent = entry.text;
+            item.appendChild(p);
+        }
+
+        // Apply highlight if the data says so
+        if (entry.highlight) {
+            item.classList.add('highlight');
+        }
+    } else {
+        // If no entry exists, mark it as a future day
+        item.classList.add('future-day');
+    }
+
+</script>
+</body>
+
+
