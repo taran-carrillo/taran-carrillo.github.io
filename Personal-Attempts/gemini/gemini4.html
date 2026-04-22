@@ -45,15 +45,15 @@ function openEntry(entry, dayNumber) {
     modal.style.display = "block";
     
     if (entry) {
-        let content = `<h2>Day ${dayNumber}</h2>`;
         if (entry.type === 'photo') {
-            content += `<img src="${entry.image}" class="modal-img">`;
+            const img = document.createElement('img');
+            img.src = entry.image;
+            item.appendChild(img);
         } else {
-            content += `<p style="font-size: 1.2rem; margin-top: 20px;">${entry.text}</p>`;
+            const p = document.createElement('p');
+            p.textContent = entry.text;
+            item.appendChild(p);
         }
-        modalBody.innerHTML = content;
-    } else {
-        modalBody.innerHTML = `<h2>Day ${dayNumber}</h2><p>No entry for this day yet.</p>`;
     }
 }
 
