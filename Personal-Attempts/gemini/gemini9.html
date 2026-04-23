@@ -8,24 +8,32 @@
     <title>6x6 Grid Layout</title>
 </header>
 <style>
-    :root {
-    --bg-color: #fcfaf7;
-    --card-bg: #ffffff;
-    --text-main: #2d3436;
-    --text-muted: #a4b0be;
-    --accent: #d4a373; /* Sophisticated gold/tan */
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+ :root {
+    /* Warmer, "Golden Hour" Palette */
+    --bg-warm: #fdf5e6; 
+    --accent-glow: #f3e5ab; /* Soft vanilla glow */
+    --card-paper: #ffffff;
+    --text-deep: #4a3f35; /* Dark chocolate instead of black */
+    --terracotta: #d68060; /* Warm accent color */
+    --sage: #8da399;      /* Calming accent color */
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    background-color: var(--bg-color);
+    /* 1. The Mesh Gradient: Creates a soft "lighting" effect */
+    background: 
+        radial-gradient(at 0% 0%, rgba(243, 229, 171, 0.4) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(214, 128, 96, 0.1) 0px, transparent 50%),
+        var(--bg-warm);
+    
+    /* 2. The Grain Overlay: Adds a tactile, paper-like feel */
+    background-image: url("https://www.transparenttextures.com/patterns/p6-mini.png");
+    
+    color: var(--text-deep);
     font-family: 'Inter', sans-serif;
-    color: var(--text-main);
-    padding: 40px 20px;
-    line-height: 1.6;
+    min-height: 100vh;
 }
+
+* {box-sizing: border-box; margin: 0; padding: 0;}
 
 header {
     text-align: center;
@@ -64,23 +72,13 @@ h1 {
 /* Grid Card Styling */
 .grid-item {
     position: relative;
-    background: var(--card-bg);
-    border-radius: 16px;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    box-shadow: var(--shadow);
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     overflow: hidden;
-    border: 1px solid rgba(0,0,0,0.03);
 }
 
-.grid-item:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-}
 
 .day-number {
     position: absolute;
@@ -89,6 +87,35 @@ h1 {
     font-size: 0.7rem;
     font-weight: 600;
     color: var(--text-muted);
+}
+
+.grid-item {
+    background: var(--card-paper);
+    border: none;
+    border-radius: 4px; /* Shorter radius feels more like physical cards */
+    padding: 12px;
+    
+    /* Soft, "floppy" shadow to make it look like paper resting on a table */
+    box-shadow: 
+        2px 2px 5px rgba(0,0,0,0.02),
+        10px 10px 15px rgba(74, 63, 53, 0.05);
+    
+    transition: all 0.3s ease-out;
+}
+
+.grid-item:hover {
+    /* A gentle tilt makes it feel more organic and less "robotic" */
+    transform: translateY(-5px) rotate(1deg);
+    box-shadow: 15px 15px 25px rgba(74, 63, 53, 0.1);
+}
+
+/* Update the Day Number to look like a small stamp */
+.day-number {
+    background: rgba(214, 128, 96, 0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--terracotta);
+    font-size: 0.65rem;
 }
 
 .entry-text {
@@ -281,6 +308,7 @@ saveBtn.onclick = () => {
         renderGrid();
     }
 };
+
 
 // START: Actually run the code
 renderGrid();
