@@ -245,29 +245,29 @@ function checkMatch(){
 
     if(isMatch){
 
-    firstCard.classList.add("matched");
-    secondCard.classList.add("matched");
-
-    // Force animation restart (small trick)
-    firstCard.style.animation = "none";
-    secondCard.style.animation = "none";
-
-    firstCard.offsetHeight; // trigger reflow
-    secondCard.offsetHeight;
-
-    firstCard.style.animation = "";
-    secondCard.style.animation = "";
-
-    matches++;
-    document.getElementById("score").textContent = matches;
+    firstCard.classList.add("matching");
+    secondCard.classList.add("matching");
 
     playSound("matchSound");
 
-    resetTurn();
+    setTimeout(() => {
+        firstCard.classList.remove("matching");
+        secondCard.classList.remove("matching");
 
-    if(matches === PAIRS){
-        setTimeout(() => alert("You won! 🎉"), 300);
-    }
+        firstCard.classList.add("matched");
+        secondCard.classList.add("matched");
+
+        matches++;
+        document.getElementById("score").textContent = matches;
+
+        resetTurn();
+
+        if(matches === PAIRS){
+            setTimeout(() => alert("You won! 🎉"), 300);
+        }
+
+    }, 300);
+
 
 
     } else {
