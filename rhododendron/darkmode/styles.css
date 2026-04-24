@@ -1,9 +1,4 @@
 /* copied code */
-* {
-    box-sizing: border-box;
-    /* use border-box model on everything */
-}
-
 #toggleDarkMode {
     margin-top: 2em;
 }
