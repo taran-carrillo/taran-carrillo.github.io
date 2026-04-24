@@ -1,1 +1,208 @@
-/* some light */
+/* copied code */
+* {
+    box-sizing: border-box;
+    /* use border-box model on everything */
+}
+
+#demo {
+    display: flex;
+    flex-direction: row;
+    /* or column, row-reverse, column-reverse */
+    flex-wrap: wrap;
+}
+
+#demo h1 {
+    flex-basis: 100%;
+    order: -1;
+}
+
+#demo p {
+    flex-basis: 20%;
+    padding-right: 1em;
+    margin-top: 0;
+}
+
+#para1 {
+    order: 0;
+}
+
+#para2 {
+    order: 0;
+}
+
+#toggleDarkMode {
+    margin-top: 2em;
+}
+
+body.darkMode {
+    background-color: darkgrey;
+    color: white;
+}
+
+body.darkMode h1 {
+    color: red;
+}
+
+/* end-copied code */
+
+
+/* mobile-first */
+
+* {
+    box-sizing: border-box;
+    font-family: Times New Roman, Times, serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    width: 100vw;
+    height: 100vh;
+}
+
+#rhodiePicture {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("Pacific\ Rhododendron\ 1\ -\ Walter\ Siegmund.jpeg");
+    background-size: cover;
+    background-position: center center;
+}
+
+#rhodieTitle {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+#rhodieTitle h1 {
+    position: absolute;
+    bottom: 0;
+    left: 1em;
+    color: white;
+    font-size: 2.5em;
+    width: calc(100vw - 2em);
+}
+
+#rhodiePic2 {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-image: url(Pacific\ Rhododendron\ 3\ -\ Gary\ Monroe-1.jpeg);
+    background-size: cover;
+    background-position: center center;
+}
+
+#bodytext {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+}
+
+#bodytext p {
+    position: absolute;
+    color: white;
+    font-size: 1.2em;
+    border: 1px black solid;
+}
+
+#p1 {
+    position: absolute;
+    top: 1.4em;
+     width: calc(100vw - 7em);
+    left: 1em;
+    background-color: darkslategray;
+    padding: 15px;
+}
+
+#p2 {
+    position: absolute;
+    margin-top: 1em;
+    top: 8em;
+     width: calc(100vw - 9em);
+    left: 8em;
+     background-color: darkslategray;
+    padding: 15px;
+}
+
+#p3 {
+    position: absolute;
+    margin-top: 1em;
+    top: 18em;
+    width: calc(100vw - 12em);
+    left: 2em;
+     background-color: darkslategray;
+    padding: 15px;
+}
+
+#p4 {
+    position:absolute;
+    bottom: 10em;
+     width: calc(100vw - 10em);
+    left:10em;
+     background-color: darkslategray;
+    padding: 15px;
+}
+
+#p5 {
+    position:absolute;
+    bottom: 1.5em;
+    width: calc(100vw - 6em);
+    left: 1em;
+     background-color: darkslategray;
+    padding: 15px;
+}
+
+/* Screen layout, computer landscape */
+
+
+@media screen and (orientation: landscape) {
+
+    #rhodiePicture {
+        width: 100vw;
+    }
+
+    #rhodieTitle {
+        width: 100vw;
+        left: 0;
+    }
+
+    #rhodieTitle h1 {
+        width: 55vw;
+        bottom: 0;
+        left: 1em;
+    }
+
+     #bodytext p {
+        border: 3px solid pink;
+        border-radius: 25px;
+    }
+
+    #p1 {
+        width: calc(100vw - 29em);
+        padding: 20px;
+        font-weight: bold;
+    }
+
+    #p2{
+        width: calc(100vw - 26em);
+        left: 23em;
+    }
+
+    #p3 {
+        width: calc(100vw - 36em)
+    }
+    #p4 {
+        position: absolute;
+        width: calc(100vw - 30em);
+        left: 28em;
+        bottom: 8em;
+    }
+
+    #p5 {
+        width: calc(100vw - 19em)
+    }
+}
