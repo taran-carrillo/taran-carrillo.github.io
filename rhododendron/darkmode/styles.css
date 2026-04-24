@@ -12,13 +12,13 @@
     color: white;
 }
 
-body.darkMode {
-    background-color: darkgrey;
-    color: white;
+p.darkMode {
+    background-color: darkslategray;
+    color: lightgray;
 }
 
-body.darkMode h1 {
-    color: red;
+.darkMode h1 {
+    color: darkred;
 }
 
 /* end-copied code */
