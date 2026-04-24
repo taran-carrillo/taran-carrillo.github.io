@@ -12,14 +12,7 @@
     color: white;
 }
 
-p.darkMode {
-    background-color: darkslategray;
-    color: lightgray;
-}
 
-.darkMode h1 {
-    color: darkred;
-}
 
 /* end-copied code */
 
@@ -192,4 +185,13 @@ header {
         padding: 15px;
         font-size: 1.2rem;
     }
+}
+
+body.darkMode #bodytext{
+    background-color: darkslategray;
+    color: lightgray;
+}
+
+.darkMode #rhodieTitle {
+    color: darkred;
 }
