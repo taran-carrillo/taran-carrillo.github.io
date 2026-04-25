@@ -13,134 +13,135 @@
     <link rel="stylesheet" href="styles.css" media="all">
     <style>
         #nutrition {
-    border: 2px solid black;
-    border-radius: 8px;
-    padding: 20px; 
-    max-width: 600px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: auto auto;
-    align-items: start;
-    gap: 16px 20px;
-}
+            border: 2px solid black;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 600px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            align-items: start;
+            gap: 16px 20px;
+        }
 
-.nutrition-label {
-    display: flex;
-    flex-direction: column;
-}
+        .nutrition-label {
+            display: flex;
+            flex-direction: column;
+        }
 
-.nutrition-item {
-    font-size: 1.1rem;
-    font-weight: 700;
-}
-.nutrition-values {
- font-size: 0.9rem;    
-}
+        .nutrition-item {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
 
-h1{
-    font-size: -webkit-xxx-large;
-    margin-bottom: -15px;
-    margin-left: 3px;
-    margin-top: 10px;
-}
+        .nutrition-values {
+            font-size: 0.9rem;
+        }
 
-.header{
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    margin-bottom: 20px;
-    margin-top: 10px;
-}
+        h1 {
+            font-size: -webkit-xxx-large;
+            margin-bottom: -15px;
+            margin-left: 3px;
+            margin-top: 10px;
+        }
 
-#subheader {
-   margin-bottom: 15px;
-    margin-left: 9px;
-}
+        .header {
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
 
-#ingredients-label {
-    display: grid;
-}
+        #subheader {
+            margin-bottom: 15px;
+            margin-left: 9px;
+        }
 
-.sub-title-labels {
-    font-weight: bold;
-    font-size: 1.4rem;
-    margin-left: 10px;
-}
+        #ingredients-label {
+            display: grid;
+        }
 
-.ingredients {
-    line-height: 2.5;
-}
+        .sub-title-labels {
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-left: 10px;
+        }
 
-span {
-    font-weight: 600;
-    font-size: 1.2rem
-}
+        .ingredients {
+            line-height: 2.5;
+        }
 
-div.directions {
-    line-height: 2;
-    margin-top: 40px;
-}
+        span {
+            font-weight: 600;
+            font-size: 1.2rem
+        }
 
-section#ad {
-    width: 100%;           
-    height: 100px;          
-    background-color: lightgray; 
-    border: 2px dashed gray;    
-    display: flex;
-    justify-content:center;
-    align-items:center;
-}
+        div.directions {
+            line-height: 2;
+            margin-top: 40px;
+        }
 
-#ad-img {
-    width: 100%;           
-    height: 300px;          
-    background-color: lightgray; 
-    border: 2px dashed gray;    
-    display: flex;
-    justify-content:center;
-    align-items:center;
-}
+        section#ad {
+            width: 100%;
+            height: 100px;
+            background-color: lightgray;
+            border: 2px dashed gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-#ratings-reviews {
-     width: 100%;           
-    height: 200px;          
-    background-color: lightgray; 
-    border: 2px dashed gray;    
-    display: flex;
-    justify-content:center;
-    align-items:center;
-}
+        #ad-img {
+            width: 100%;
+            height: 300px;
+            background-color: lightgray;
+            border: 2px dashed gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-@media screen and (max-width: 600px){
-    #img1 {
-        width: 100%;
-        max-height: auto;
-        aspect-ratio: 200/150;
-        margin-top: 5px;
-    }
-    div img {
-        width: 100%;
-        margin: 0;
-        margin-left: -20px;
-    }
-}
+        #ratings-reviews {
+            width: 100%;
+            height: 200px;
+            background-color: lightgray;
+            border: 2px dashed gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-@media screen and (min-width: 601px) {
-    #img1 {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 5px;
-        width: 80%;
-    }
-    #ad-img {
-        width: 50%;
-        justify-self:center;
-        margin-top: 30px;
-        margin-bottom: 50px;
-    }
-}
+        @media screen and (max-width: 600px) {
+            #img1 {
+                width: 100%;
+                max-height: auto;
+                aspect-ratio: 200/150;
+                margin-top: 5px;
+            }
 
+            div img {
+                width: 100%;
+                margin: 0;
+                margin-left: -20px;
+            }
+        }
 
+        @media screen and (min-width: 601px) {
+            #img1 {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 5px;
+                width: 80%;
+            }
+
+            #ad-img {
+                width: 50%;
+                justify-self: center;
+                margin-top: 30px;
+                margin-bottom: 50px;
+            }
+        }
     </style>
 
     <!-- external and internal JavaScript -->
@@ -155,14 +156,15 @@ section#ad {
 
     <section id="ad"> insert advertisement here</section>
     <header>
-        <img id="img1" src="/responsive-recipe/new banana bread cover image.jpg" alt="A freshly baked loaf of banana bread, sliced and placed on a wooden cutting board with a ripe banana in the background.">
-        
+        <img id="img1" src="/responsive-recipe/new banana bread cover image.jpg"
+            alt="A freshly baked loaf of banana bread, sliced and placed on a wooden cutting board with a ripe banana in the background.">
+
         <div class="header">
-        <h1>Banana Bread</h1>
-        <p id="subheader">Recipe from Allrecipes</p>
+            <h1>Banana Bread</h1>
+            <p id="subheader">Recipe from Allrecipes</p>
         </div>
     </header>
- 
+
     <main>
 
         <div id="nutrition">
@@ -171,11 +173,11 @@ section#ad {
                 <p id="1v" class="nutrition-values">15 mins</p>
             </div>
             <div class="nutrition-label">
-                <p id="2l" class="nutrition-item">Cook Time:</p>           
+                <p id="2l" class="nutrition-item">Cook Time:</p>
                 <p class="nutrition-values" id="2v">1 hr</p>
             </div>
             <div class="nutrition-label">
-                <p class="nutrition-item" id="3l">Total Time:</p>      
+                <p class="nutrition-item" id="3l">Total Time:</p>
                 <p class="nutrition-values" id="3v">1 hr 15 mins</p>
             </div>
             <div class="nutrition-label">
@@ -202,7 +204,7 @@ section#ad {
             </ul>
         </section>
         <section id="ad-img">
-           insert ad here
+            insert ad here
         </section>
 
         <section id="directions">
@@ -212,26 +214,31 @@ section#ad {
                 <ol>
                     <li class="directions">Gather all ingredients. Preheat the oven to 350 degrees F (175 degrees
                         C). Lightly grease a 9x5-inch loaf pan.</li>
-                        <div><img src="/responsive-recipe/step 1 banana bread.webp" alt="ingredients separated into bowls arranged on a wooden cutting board."></div>
+                    <div><img src="/responsive-recipe/step 1 banana bread.webp"
+                            alt="ingredients separated into bowls arranged on a wooden cutting board."></div>
                     <li class="directions">Combine flour, baking soda, and salt in a large bowl. Beat brown sugar
                         and butter with an electric mixer in a separate large bowl until smooth. Stir in eggs and
                         mashed bananas until well blended. Stir banana mixture into flour mixture until just
                         combined.</li>
-                        <div><img src="/responsive-recipe/step 2 banana bread.webp" alt="a bowl of half-mixed banana bread batter."></div>
+                    <div><img src="/responsive-recipe/step 2 banana bread.webp"
+                            alt="a bowl of half-mixed banana bread batter."></div>
                     <li class="directions">Pour batter into the prepared loaf pan.</li>
-                    <div><img src="/responsive-recipe/step 3 banana bread.webp" alt="prepared banana bread batter in a baking loaf pan"></div>
+                    <div><img src="/responsive-recipe/step 3 banana bread.webp"
+                            alt="prepared banana bread batter in a baking loaf pan"></div>
                     <li class="directions">Bake in the preheated oven until a toothpick inserted into the center
                         comes out clean, about 60 minutes.</li>
-                        <div><img src="/responsive-recipe/step 4 banana bread.webp" alt="a loaf of banana bread fresh out of the oven still in the baking loaf pan."></div>
+                    <div><img src="/responsive-recipe/step 4 banana bread.webp"
+                            alt="a loaf of banana bread fresh out of the oven still in the baking loaf pan."></div>
                     <li class="directions">Let bread cool in pan for 10 minutes, then turn out onto a wire rack to
                         cool completely.</li>
-                        <div><img src="/responsive-recipe/step 5 banana bread.webp" alt="a cooked loaf of banana bread sitting on a metal cooling rack."></div>
+                    <div><img src="/responsive-recipe/step 5 banana bread.webp"
+                            alt="a cooked loaf of banana bread sitting on a metal cooling rack."></div>
                     <li class="directions">Enjoy!</li>
                 </ol>
             </div>
         </section>
 
-<hr>
+        <hr>
 
         <section id="ratings-reviews">
 
