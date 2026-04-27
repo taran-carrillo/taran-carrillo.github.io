@@ -4,7 +4,7 @@
 
 /* define variables */
 :root {
-    --nav-height: 3rem;
+    --nav-height: 5rem;
     --nav-bkgd-color: black;
     --nav-text-color: white;
     --nav-hover-bkgd-color: lightgray;
