@@ -1,3 +1,4 @@
+// js for recipe site
 // JS for responsive menu demo
 // file renamed to "scripts.js" (plural) after the demo
 
