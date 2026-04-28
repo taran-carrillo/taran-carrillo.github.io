@@ -153,8 +153,16 @@ nav>ul>li>ul>li:hover a {
 }
 
 #homebigimg {
-    
+
     max-width: 60vw;
     height: auto;
 
+}
+
+#logomain {
+    background: none;
+    background-color: none;
+    position: relative;
+    align-self: center center;
+    
 }
