@@ -22,6 +22,7 @@ body {
 
 nav {
     position: absolute;
+    display: flex;
     top: 0;
     left: 0;
     width: 100%;
@@ -154,15 +155,14 @@ nav>ul>li>ul>li:hover a {
 
 #homebigimg {
 
-    max-width: 60vw;
+    max-width: 75vw;
     height: auto;
 
 }
 
 #logomain {
-    background: none;
-    background-color: none;
     position: relative;
+
     align-self: center center;
     height: var(--nav-height);
     width: auto;
