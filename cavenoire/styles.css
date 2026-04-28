@@ -164,5 +164,7 @@ nav>ul>li>ul>li:hover a {
     background-color: none;
     position: relative;
     align-self: center center;
-    
+    height: var(--nav-height);
+    width: auto;
+    padding: 20px;
 }
