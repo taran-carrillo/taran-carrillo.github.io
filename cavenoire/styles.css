@@ -154,7 +154,7 @@ nav>ul>li>ul>li:hover a {
 }
 
 #homebigimg {
-
+    width: 70vw;
     max-width: 75vw;
     height: auto;
 
@@ -162,7 +162,6 @@ nav>ul>li>ul>li:hover a {
 
 #logomain {
     position: relative;
-
     align-self: center center;
     height: var(--nav-height);
     width: auto;
