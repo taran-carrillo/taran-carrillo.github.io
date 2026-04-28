@@ -151,3 +151,10 @@ nav>ul>li>ul>li:hover a {
     }
 
 }
+
+#homebigimg {
+    
+    max-width: 60vw;
+    height: auto;
+
+}
