@@ -1,5 +1,4 @@
-ain · JS
-Copy
+
 
 /* ========================================
    CAVE NOIRE — Main JavaScript
