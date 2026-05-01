@@ -1,0 +1,345 @@
+Menu · HTML
+Copy
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu — Cave Noire</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+ 
+    .menu-category { margin-bottom: 1rem; }
+    .menu-category-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      cursor: pointer;
+    }
+    .menu-category-header h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      color: var(--cream);
+      white-space: nowrap;
+    }
+    .menu-category-header .cat-line {
+      flex: 1;
+      height: 0.5px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: 0.3;
+    }
+    .menu-category-header .cat-toggle {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+      opacity: 0.6;
+      transition: transform 0.3s;
+      user-select: none;
+    }
+    .menu-category.open .cat-toggle { transform: rotate(45deg); }
+ 
+    .menu-items {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      margin-bottom: 2.5rem;
+      border: 0.5px solid var(--border);
+    }
+    .menu-category.open .menu-items { display: grid; }
+ 
+    .menu-item {
+      background: var(--charcoal-mid);
+      padding: 1.6rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: background 0.2s;
+    }
+    .menu-item:hover { background: rgba(201,168,76,0.04); }
+    .menu-item-info { flex: 1; }
+    .menu-item-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.03em;
+    }
+    .menu-item-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .menu-item-origin {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 0.4rem;
+      opacity: 0.7;
+    }
+    .menu-item-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      color: var(--gold);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+ 
+    .flights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .flight-card {
+      background: var(--charcoal-mid);
+      border: 0.5px solid var(--border);
+      padding: 2rem;
+      transition: border-color 0.3s, transform 0.2s;
+    }
+    .flight-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .flight-name {
+      font-family: 'Cinzel', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .flight-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 1.2rem; }
+    .flight-price { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--gold); }
+    .flight-note { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.3rem; }
+ 
+    @media (max-width: 680px) {
+      .menu-items { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <ul class="nav-left">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html" class="active">Menu</a></li>
+    </ul>
+    <div class="nav-logo">
+      <a href="index.html"><img src="logo.png" alt="Cave Noire" /></a>
+    </div>
+    <ul class="nav-right">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-drawer" id="nav-mobile-drawer">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+ 
+<!-- ══════════════════ PAGE HERO ══════════════════ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <p class="label">Glass Pour &amp; Tasting</p>
+    <h1 class="section-title">Our Menu</h1>
+  </div>
+</section>
+ 
+<!-- ══════════════════ MENU CONTENT ══════════════════ -->
+<section class="placeholder-section">
+  <div style="max-width:1100px; margin:0 auto;">
+ 
+    <p class="section-body reveal" style="max-width:600px; margin-bottom:3rem;">
+      Our selection rotates with the seasons. Everything below reflects what's pouring right now — ask our staff for today's specials and what's newly arrived in the bottle shop.
+    </p>
+ 
+    <!-- Sparkling & White -->
+    <div class="menu-category open reveal">
+      <div class="menu-category-header" onclick="toggleCategory(this)">
+        <h3>Sparkling &amp; White</h3>
+        <div class="cat-line"></div>
+        <span class="cat-toggle">+</span>
+      </div>
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <p class="menu-item-name">Grüner Veltliner</p>
+            <p class="menu-item-desc">Crisp, peppery notes with green herbs and citrus zest</p>
+            <p class="menu-item-origin">Austria · Wachau</p>
+          </div>
+          <p class="menu-item-price">$14</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <p class="menu-item-name">Vermentino</p>
+            <p class="menu-item-desc">Bright stone fruit, saline finish, lightly floral</p>
+            <p class="menu-item-origin">Sardinia, Italy</p>
+          </div>
+          <p class="menu-item-price">$13</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <p class="menu-item-name">Pét-Nat Rosé</p>
+            <p class="menu-item-desc">Lightly sparkling, wild strawberry, off-dry finish</p>
+            <p class="menu-item-origin">Loire Valley, France</p>
+          </div>
+          <p class="menu-item-price">$15</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <p class="menu-item-name">Aligoté</p>
+            <p class="menu-item-desc">Lean, mineral-driven Burgundy white with bright acidity</p>
+            <p class="menu-item-origin">Burgundy, France</p>
+          </div>
+          <p class="menu-item-price">$13</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <p class="menu-item-name">Txakoli</p>
+            <p class="menu-item-desc">Bone dry, effervescent, ocean breeze and green apple</p>
+            <p class="menu-item-origin">Basque Country, Spain</p>
+          </div>
+          <p class="menu-item-price">$14</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <p class="menu-item-name">Orange Wine — Ramato</p>
+            <p class="menu-item-desc">Pinot Grigio on skins, copper hue, tannic and nutty</p>
+            <p class="menu-item-origin">Friuli, Italy</p>
+          </div>
+          <p class="menu-item-price">$16</p>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Red -->
+    <div class="menu-category open reveal reveal-delay-1">
+      <div class="menu-category-header" onclick="toggleCategory(this)">
+        <h3>Red</h3>
+        <div class="cat-line"></div>
+        <span class="cat-toggle">+</span>
+      </div>
+      <div class="menu-items">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <p class="menu-item-name">Dead Crow — Cabernet Franc</p>
+            <p class="menu-item-desc">Signature herbal, violet, and dark cherry. Estate grown</p>
+            <p class="menu-item-origin">Washington State · Dead Crow</p>
+          </div>
+          <p class="menu-item-price">$16</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <p class="menu-item-name">Dead Crow — Grenache</p>
+            <p class="menu-item-desc">Silky, bright red fruit, subtle spice and earthiness</p>
+            <p class="menu-item-origin">Washington State · Dead Crow</p>
+          </div>
+          <p class="menu-item-price">$16</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <p class="menu-item-name">Barbera d'Asti</p>
+            <p class="menu-item-desc">Low tannin, bright acidity, plum and cherry forward</p>
+            <p class="menu-item-origin">Piedmont, Italy</p>
+          </div>
+          <p class="menu-item-price">$14</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <p class="menu-item-name">Trousseau</p>
+            <p class="menu-item-desc">Light, aromatic, earthy red from the Jura. Rare pour</p>
+            <p class="menu-item-origin">Jura, France</p>
+          </div>
+          <p class="menu-item-price">$17</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <p class="menu-item-name">Mencía</p>
+            <p class="menu-item-desc">Floral, graphite, wild berry — Galician mountain character</p>
+            <p class="menu-item-origin">Bierzo, Spain</p>
+          </div>
+          <p class="menu-item-price">$14</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <p class="menu-item-name">Xinomavro</p>
+            <p class="menu-item-desc">High acid, tannic, tomato leaf and dried cherry</p>
+            <p class="menu-item-origin">Naoussa, Greece</p>
+          </div>
+          <p class="menu-item-price">$15</p>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Tasting Flights -->
+    <div class="reveal reveal-delay-2" style="margin-top:1rem;">
+      <p class="label">Curated Experiences</p>
+      <h2 class="section-title">Tasting Flights</h2>
+      <span class="gold-line"></span>
+      <p class="section-body">Each flight is a guided journey — three pours chosen to tell a story. Ask your server for the current flight offerings.</p>
+ 
+      <div class="flights-grid">
+        <div class="flight-card">
+          <h4 class="flight-name">The Dead Crow Flight</h4>
+          <p class="flight-desc">Three pours from our exclusive Dead Crow label — explore the full range of what Washington State's finest small-batch producer has to offer.</p>
+          <p class="flight-price">$32</p>
+          <p class="flight-note">3 × 2 oz pours</p>
+        </div>
+        <div class="flight-card">
+          <h4 class="flight-name">Natural Wanderer</h4>
+          <p class="flight-desc">A tour through the natural wine world — minimal intervention, maximum expression. Rotating selections from small producers we love.</p>
+          <p class="flight-price">$28</p>
+          <p class="flight-note">3 × 2 oz pours</p>
+        </div>
+        <div class="flight-card">
+          <h4 class="flight-name">Old World vs. New</h4>
+          <p class="flight-desc">Side-by-side pairings of the same grape from contrasting hemispheres. A study in terroir, tradition, and expression.</p>
+          <p class="flight-price">$30</p>
+          <p class="flight-note">3 × 2 oz pours</p>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <a href="index.html"><img src="logo.png" alt="Cave Noire" /></a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Cave Noire · Wenatchee, WA</p>
+  </div>
+</footer>
+ 
+<script src="main.js"></script>
+<script>
+  function toggleCategory(header) {
+    const card = header.closest('.menu-category');
+    card.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
+ 
