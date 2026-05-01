@@ -1,0 +1,232 @@
+About · HTML
+Copy
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Cave Noire</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+ 
+    .about-full { padding: 6rem 2rem; background: var(--dark); }
+    .about-full-inner { max-width: 1100px; margin: 0 auto; }
+ 
+    .about-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 4rem;
+    }
+ 
+    .about-img-block {
+      position: relative;
+      background: var(--charcoal-mid);
+      height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .about-img-block::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.05) 0%, transparent 60%);
+    }
+    .about-img-logo {
+      width: 220px;
+      filter: invert(1);
+      opacity: 0.07;
+    }
+    .about-img-label {
+      position: absolute;
+      bottom: 1.5rem; left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cinzel', serif;
+      font-size: 0.58rem;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+      white-space: nowrap;
+      opacity: 0.5;
+    }
+ 
+    .about-text p { margin-bottom: 1.4rem; }
+ 
+    .values-section {
+      padding: 6rem 2rem;
+      background: var(--charcoal);
+      border-top: 0.5px solid var(--border);
+    }
+    .values-inner { max-width: 1100px; margin: 0 auto; }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 2px;
+      background: var(--border);
+      margin-top: 3rem;
+    }
+    .value-block {
+      background: var(--charcoal);
+      padding: 2.5rem 2rem;
+      transition: background 0.3s;
+    }
+    .value-block:hover { background: rgba(201,168,76,0.04); }
+    .value-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 2.8rem;
+      color: rgba(201,168,76,0.2);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .value-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      color: var(--cream);
+      margin-bottom: 0.6rem;
+    }
+    .value-text { font-size: 0.84rem; color: var(--text-muted); line-height: 1.8; }
+ 
+    @media (max-width: 860px) {
+      .about-two-col { grid-template-columns: 1fr; }
+      .about-img-block { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <ul class="nav-left">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+    </ul>
+    <div class="nav-logo">
+      <a href="index.html"><img src="logo.png" alt="Cave Noire" /></a>
+    </div>
+    <ul class="nav-right">
+      <li><a href="about.html" class="active">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-drawer" id="nav-mobile-drawer">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+ 
+<!-- ══════════════════ PAGE HERO ══════════════════ -->
+<section class="page-hero" style="background: radial-gradient(ellipse at 30% 60%, rgba(122,28,46,0.14) 0%, transparent 55%), var(--dark);">
+  <div class="page-hero-inner">
+    <p class="label">Our Story</p>
+    <h1 class="section-title">About Cave Noire</h1>
+  </div>
+</section>
+ 
+<!-- ══════════════════ MAIN ABOUT ══════════════════ -->
+<section class="about-full">
+  <div class="about-full-inner">
+    <div class="about-two-col">
+ 
+      <div class="about-img-block reveal">
+        <img class="about-img-logo" src="logo.png" alt="" aria-hidden="true" />
+        <p class="about-img-label">Wenatchee, Washington</p>
+      </div>
+ 
+      <div class="about-text reveal reveal-delay-1">
+        <p class="label">Who We Are</p>
+        <h2 class="section-title">A Cave for the Curious</h2>
+        <span class="gold-line"></span>
+ 
+        <p class="section-body">Cave Noire was born from a simple belief: that a truly great wine shop should feel like a discovery. Not intimidating. Not formulaic. Just honest, passionate, and alive with possibility.</p>
+ 
+        <p class="section-body">We are the exclusive retail home of Dead Crow wines — one of Washington State's most exciting small-batch producers — and we've built our bottle shop around that same spirit of craft and intention. Every label on our shelves is here because we believe in it.</p>
+ 
+        <p class="section-body">Located in Wenatchee, WA, we sit in the heart of one of the Pacific Northwest's most vibrant wine corridors. We're proud to serve our community and invite the world in, pour by pour.</p>
+ 
+        <p class="section-body">Whether you're a seasoned collector or ordering your first glass, you belong here. Pull up a seat. We'll find you something perfect.</p>
+ 
+        <div style="margin-top: 2rem;">
+          <a href="contact.html" class="btn-primary">Find Us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ VALUES ══════════════════ -->
+<section class="values-section">
+  <div class="values-inner">
+    <div class="reveal">
+      <p class="label">What We Stand For</p>
+      <h2 class="section-title">Our Values</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-block reveal">
+        <div class="value-icon">I</div>
+        <h3 class="value-title">Intentionality</h3>
+        <p class="value-text">Every bottle we carry is deliberate. We taste, research, and curate with care — nothing ends up on our shelves by accident.</p>
+      </div>
+      <div class="value-block reveal reveal-delay-1">
+        <div class="value-icon">II</div>
+        <h3 class="value-title">Community</h3>
+        <p class="value-text">We're rooted in Wenatchee. We champion local producers, host local gatherings, and believe wine is best when it brings people together.</p>
+      </div>
+      <div class="value-block reveal reveal-delay-2">
+        <div class="value-icon">III</div>
+        <h3 class="value-title">Discovery</h3>
+        <p class="value-text">We love the unexpected pour — the grape you've never heard of, the region that surprises you. Adventure lives in the glass.</p>
+      </div>
+      <div class="value-block reveal">
+        <div class="value-icon">IV</div>
+        <h3 class="value-title">Honesty</h3>
+        <p class="value-text">No pretension. No gatekeeping. We'll tell you what's great, what's interesting, and what might not be for you — because your trust matters more than a sale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ DEAD CROW TEASER ══════════════════ -->
+<div class="cta-strip">
+  <div class="cta-strip-inner">
+    <h2>The Exclusive Home of Dead Crow</h2>
+    <p>Washington State's most exciting small-batch label — available only here.</p>
+    <a href="menu.html" class="btn-primary">See What's Pouring</a>
+  </div>
+</div>
+ 
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <a href="index.html"><img src="logo.png" alt="Cave Noire" /></a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Cave Noire · Wenatchee, WA</p>
+  </div>
+</footer>
+ 
+<script src="main.js"></script>
+</body>
+</html>
+ 
