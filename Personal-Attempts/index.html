@@ -1,0 +1,178 @@
+Index · HTML
+Copy
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cave Noire — Fine Wines · Wenatchee, WA</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Reveal animation */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+  </style>
+</head>
+<body>
+ 
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <ul class="nav-left">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+    </ul>
+ 
+    <div class="nav-logo">
+      <a href="index.html">
+        <img src="logo.png" alt="Cave Noire" />
+      </a>
+    </div>
+ 
+    <ul class="nav-right">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+ 
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+ 
+  <div class="nav-mobile-drawer" id="nav-mobile-drawer">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+ 
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero">
+  <p class="hero-eyebrow">Exclusive Retail Home of Dead Crow Wines</p>
+ 
+  <h1 class="section-title" style="font-size: clamp(3.5rem,9vw,7.5rem); letter-spacing:0.18em; opacity:0; animation: fadeUp 0.9s 0.4s forwards;">
+    CAVE NOIRE
+  </h1>
+ 
+  <p class="hero-tagline">Fine wines from around the world</p>
+ 
+  <p class="hero-desc">
+    An intimate cave of curated selections — from the acclaimed Dead Crow label to exceptional bottles sourced from the world's greatest wine regions. Wenatchee's destination for the discerning palate.
+  </p>
+ 
+  <div class="hero-ctas">
+    <a href="menu.html" class="btn-primary">View Our Menu</a>
+    <a href="about.html" class="btn-outline">Our Story</a>
+  </div>
+ 
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ FEATURES ══════════════════ -->
+<section class="features">
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-num">01</div>
+      <h3 class="feature-title">By the Glass</h3>
+      <p class="feature-text">An eclectic rotating selection of local and international wines available by the pour. Discover something unexpected every visit.</p>
+    </div>
+    <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-num">02</div>
+      <h3 class="feature-title">Tasting Flights</h3>
+      <p class="feature-text">Curated flights that tell the story of a region, a grape, or a winemaker's vision — guided tasting without the formality.</p>
+    </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-num">03</div>
+      <h3 class="feature-title">Bottle Shop</h3>
+      <p class="feature-text">Take home something exceptional. Natural, classic, and adventurous selections for every occasion and every cellar.</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ MENU PREVIEW ══════════════════ -->
+<section class="menu-section">
+  <div class="menu-layout">
+    <div class="reveal">
+      <p class="label">Glass Pour &amp; Tasting</p>
+      <h2 class="section-title">The Menu</h2>
+      <span class="gold-line"></span>
+      <p class="section-body">Our selection rotates to reflect the season and what's exciting us. Expect natural wines alongside beloved classics — always with intention, never predictable.</p>
+      <div class="menu-tags">
+        <span class="tag">Natural</span>
+        <span class="tag">Organic</span>
+        <span class="tag">Biodynamic</span>
+        <span class="tag">Old World</span>
+        <span class="tag">New World</span>
+        <span class="tag">Dead Crow</span>
+      </div>
+      <div class="menu-cta">
+        <a href="menu.html" class="btn-primary">View Full Menu</a>
+      </div>
+    </div>
+ 
+    <div class="menu-visual reveal reveal-delay-1">
+      <svg class="menu-glass-svg" viewBox="0 0 100 220" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <path d="M18,8 Q8,65 32,108 Q42,124 50,130 L50,190 L28,200 L72,200 L50,190 L50,130 Q58,124 68,108 Q92,65 82,8 Z" stroke="white" stroke-width="1.5" fill="rgba(201,168,76,0.04)" />
+        <path d="M24,55 Q50,82 76,55" stroke="rgba(201,168,76,0.25)" stroke-width="0.8" fill="none" />
+        <path d="M22,75 Q50,96 78,75" stroke="rgba(201,168,76,0.12)" stroke-width="0.6" fill="none" />
+      </svg>
+      <p class="menu-visual-label">Seasonal Selections</p>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ ABOUT TEASER ══════════════════ -->
+<section class="about-section">
+  <div class="about-inner">
+    <blockquote class="about-quote reveal">
+      "The exclusive home of Dead Crow — and a window into the world's finest cellars."
+    </blockquote>
+    <div class="reveal reveal-delay-1">
+      <p class="label">About Cave Noire</p>
+      <h2 class="section-title">More Than a Wine Shop</h2>
+      <span class="gold-line"></span>
+      <p class="section-body">Cave Noire is a gathering place for the curious — those who believe a great bottle should be shared, discovered, and savored. As the exclusive retail location for Dead Crow wines, we carry what no one else carries, alongside a hand-picked collection from every corner of the globe.</p>
+      <p class="section-body" style="margin-top:1rem;">Stop in. Let us pour you something unexpected.</p>
+      <div style="margin-top:2rem;">
+        <a href="about.html" class="btn-outline">Our Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ BOTTLE SHOP CTA ══════════════════ -->
+<div class="cta-strip">
+  <div class="cta-strip-inner">
+    <h2>Visit Us in Wenatchee</h2>
+    <p>Something for tonight. Something for the cellar. Something you've never tried.</p>
+    <a href="contact.html" class="btn-primary">Find Us</a>
+  </div>
+</div>
+ 
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <a href="index.html"><img src="logo.png" alt="Cave Noire" /></a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Cave Noire · Wenatchee, WA</p>
+  </div>
+</footer>
+ 
+<script src="main.js"></script>
+</body>
+</html>
