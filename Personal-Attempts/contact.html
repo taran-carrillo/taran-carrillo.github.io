@@ -1,0 +1,301 @@
+Contact · HTML
+Copy
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Cave Noire</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+ 
+    .contact-main {
+      padding: 6rem 2rem;
+      background: var(--dark);
+    }
+    .contact-main-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+ 
+    /* Map placeholder */
+    .map-placeholder {
+      background: var(--charcoal-mid);
+      border: 0.5px solid var(--border);
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .map-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%);
+    }
+    .map-pin {
+      font-size: 2rem;
+      opacity: 0.3;
+      position: relative;
+      z-index: 1;
+    }
+    .map-text {
+      font-size: 0.68rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+    .map-addr {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold);
+      position: relative;
+      z-index: 1;
+      opacity: 0.7;
+    }
+ 
+    /* Form success banner */
+    .form-success {
+      display: none;
+      background: rgba(201,168,76,0.08);
+      border: 0.5px solid var(--gold);
+      padding: 1rem 1.4rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+    .form-success.show { display: block; }
+ 
+    .hours-section {
+      padding: 5rem 2rem;
+      background: var(--charcoal);
+      border-top: 0.5px solid var(--border);
+    }
+    .hours-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      align-items: start;
+    }
+ 
+    @media (max-width: 860px) {
+      .contact-main-inner,
+      .hours-inner { grid-template-columns: 1fr; gap: 3rem; }
+    }
+  </style>
+</head>
+<body>
+ 
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <ul class="nav-left">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+    </ul>
+    <div class="nav-logo">
+      <a href="index.html"><img src="logo.png" alt="Cave Noire" /></a>
+    </div>
+    <ul class="nav-right">
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-drawer" id="nav-mobile-drawer">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+ 
+<!-- ══════════════════ PAGE HERO ══════════════════ -->
+<section class="page-hero" style="background: radial-gradient(ellipse at 70% 40%, rgba(201,168,76,0.06) 0%, transparent 55%), var(--dark);">
+  <div class="page-hero-inner">
+    <p class="label">Get in Touch</p>
+    <h1 class="section-title">Contact</h1>
+  </div>
+</section>
+ 
+<!-- ══════════════════ MAIN CONTACT ══════════════════ -->
+<section class="contact-main">
+  <div class="contact-main-inner">
+ 
+    <!-- Info Column -->
+    <div class="reveal">
+      <p class="label">Find Us</p>
+      <h2 class="section-title">Come Visit</h2>
+      <span class="gold-line"></span>
+ 
+      <div class="contact-block">
+        <p class="contact-lbl">Address</p>
+        <p class="contact-val">
+          Cave Noire<br />
+          Wenatchee, WA<br />
+          United States
+        </p>
+      </div>
+ 
+      <div class="contact-block">
+        <p class="contact-lbl">Phone</p>
+        <p class="contact-val">
+          <a href="tel:+15095550000">(509) 555-0000</a>
+        </p>
+      </div>
+ 
+      <div class="contact-block">
+        <p class="contact-lbl">Email</p>
+        <p class="contact-val">
+          <a href="mailto:hello@cavenoire.com">hello@cavenoire.com</a>
+        </p>
+      </div>
+ 
+      <div class="contact-block">
+        <p class="contact-lbl">Social</p>
+        <p class="contact-val">
+          <a href="#" style="color:var(--gold);">@cavenoire</a>
+        </p>
+      </div>
+ 
+      <!-- Map placeholder — replace src with real Google Maps embed -->
+      <div class="map-placeholder">
+        <div class="map-pin">◈</div>
+        <p class="map-text">Wenatchee, Washington</p>
+        <p class="map-addr">Replace with Google Maps embed</p>
+      </div>
+    </div>
+ 
+    <!-- Form Column -->
+    <div class="reveal reveal-delay-1">
+      <p class="label">Say Hello</p>
+      <h2 class="section-title">Send a Message</h2>
+      <span class="gold-line"></span>
+      <p class="section-body" style="margin-bottom:2rem;">Questions about our selection, private events, or just want to know what's pouring? We'd love to hear from you.</p>
+ 
+      <div class="form-success" id="form-success">
+        ✓ &nbsp; Your message has been sent. We'll be in touch soon!
+      </div>
+ 
+      <form class="contact-form" id="contact-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="name">Full Name</label>
+          <input class="form-input" type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
+          <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="subject">Subject</label>
+          <input class="form-input" type="text" id="subject" name="subject" placeholder="What's on your mind?" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Tell us more…" required></textarea>
+        </div>
+        <button type="submit" class="btn-primary" id="form-submit">Send Message</button>
+      </form>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- ══════════════════ HOURS ══════════════════ -->
+<section class="hours-section">
+  <div class="hours-inner">
+    <div class="reveal">
+      <p class="label">When to Visit</p>
+      <h2 class="section-title">Hours</h2>
+      <span class="gold-line"></span>
+      <p class="section-body">Walk-ins always welcome. We recommend checking our social media for any holiday changes or special event hours.</p>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <table class="hours-table">
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>Closed</td>
+          </tr>
+          <tr>
+            <td>Tuesday – Thursday</td>
+            <td>3:00 pm – 9:00 pm</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>12:00 pm – 10:00 pm</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>12:00 pm – 10:00 pm</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>12:00 pm – 7:00 pm</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+ 
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <a href="index.html"><img src="logo.png" alt="Cave Noire" /></a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 Cave Noire · Wenatchee, WA</p>
+  </div>
+</footer>
+ 
+<script src="main.js"></script>
+<script>
+  // Override contact form for this page
+  const form = document.getElementById('contact-form');
+  const btn  = document.getElementById('form-submit');
+  const successBanner = document.getElementById('form-success');
+ 
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+    setTimeout(() => {
+      successBanner.classList.add('show');
+      btn.textContent = 'Send Message';
+      btn.disabled = false;
+      form.reset();
+      successBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 1200);
+  });
+</script>
+</body>
+</html>
+ 
