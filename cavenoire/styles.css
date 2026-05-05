@@ -60,6 +60,7 @@ nav>ul>li {
     background-color: var(--nav-bkgd-color);
     display: block;
     margin: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 nav>ul>li>a {
@@ -160,7 +161,6 @@ nav>ul>li>ul>li:hover a {
     }
     nav > ul > li {
         font-size: 1rem;
-        font-family: ;
     }
 
 }
@@ -188,6 +188,6 @@ nav>ul>li>ul>li:hover a {
     width: 25vw;
     height: 55px;
     overflow: hidden;
-    position:absolute;
+    position: absolute;
     margin: 0 -1rem;
 }
