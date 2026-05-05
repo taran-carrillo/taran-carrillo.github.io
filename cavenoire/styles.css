@@ -24,6 +24,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
+    height: 60px;
     background-color: var(--nav-bkgd-color);
 }
 
@@ -127,7 +128,8 @@ nav>ul>li>ul>li:hover a {
 
     nav>ul>li a {
         padding-right: 0.5rem;
-        margin: 0;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+        
     }
 
     nav>ul>li>ul {
@@ -151,10 +153,14 @@ nav>ul>li>ul>li:hover a {
     }
 
     nav a {
-        height: 100;
+        height: 100%;
         padding: 0 30px;
         display: flex;
         align-items: center;
+    }
+    nav > ul > li {
+        font-size: 1rem;
+        font-family: ;
     }
 
 }
@@ -169,8 +175,19 @@ nav>ul>li>ul>li:hover a {
 #logomain {
     position: relative;
     align-self: center center;
-    height: 50px;
-    width: auto;
+    height: 135px;
+    width: 18vw;
     padding: 20px;
     background: none;
+    position: absolute;
+    object-fit: cover;
+    object-position: bottom;
+    
+}
+.nav-logo {
+    width: 25vw;
+    height: 55px;
+    overflow: hidden;
+    position:absolute;
+    margin: 0 -1rem;
 }
