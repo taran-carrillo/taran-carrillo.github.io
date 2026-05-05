@@ -16,16 +16,14 @@
 
 body {
     margin: 0;
-    padding: var(--nav-height) 0 0 0;
+    padding: 0;
 }
 
 nav {
-    position: absolute;
     display: flex;
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--nav-height);
     background-color: var(--nav-bkgd-color);
 }
 
@@ -157,7 +155,6 @@ nav>ul>li>ul>li:hover a {
         padding: 0 30px;
         display: flex;
         align-items: center;
-        
     }
 
 }
