@@ -4,7 +4,6 @@
 
 /* define variables */
 :root {
-    --nav-height: 5rem;
     --nav-bkgd-color: black;
     --nav-text-color: white;
     --nav-hover-bkgd-color: lightgray;
@@ -92,13 +91,11 @@ nav>ul>li.clicked>ul {
     max-height: 90vh;
 }
 
-nav>ul>li>ul>li {
-    padding: 0.5rem 0 0.5rem 0.5rem;
-}
 
 nav a {
     text-decoration: none;
     color: var(--nav-text-color);
+    
 }
 
 nav>ul>li>ul>li:hover {
@@ -119,6 +116,10 @@ nav>ul>li>ul>li:hover a {
 
     nav>ul {
         overflow: visible;
+        width: 100%;
+        display: flex;
+        
+        justify-content: flex-end;
     }
 
     nav>ul>li {
@@ -151,6 +152,14 @@ nav>ul>li>ul>li:hover a {
         content: "";
     }
 
+    nav a {
+        height: 100;
+        padding: 0 30px;
+        display: flex;
+        align-items: center;
+        
+    }
+
 }
 
 #homebigimg {
@@ -163,7 +172,8 @@ nav>ul>li>ul>li:hover a {
 #logomain {
     position: relative;
     align-self: center center;
-    height: var(--nav-height);
+    height: 50px;
     width: auto;
     padding: 20px;
+    background: none;
 }
