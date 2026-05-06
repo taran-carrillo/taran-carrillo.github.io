@@ -234,13 +234,5 @@ nav>ul>li>ul>li:hover a {
        
     }
     
-    main {
-        width: 70%;
-        min-height: 100vh;
-    }
-
-    #home-page-right-container {
-        width: 30%;
-        height: auto;
-    }
+   
 }
