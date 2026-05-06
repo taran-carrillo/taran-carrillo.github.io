@@ -21,10 +21,11 @@ body {
 
 nav {
     display: flex;
+    justify-content: center;
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
+    height: 80px;
     background-color: var(--nav-bkgd-color);
 }
 
@@ -35,6 +36,8 @@ nav {
     color: var(--nav-text-color);
     padding: 0.1em 0 0 0.3em;
     max-height: 2rem;
+    margin-right: auto;
+    margin-top: 0.8rem;
 }
 
 nav ul {
@@ -106,10 +109,69 @@ nav>ul>li>ul>li:hover a {
     color: var(--nav-hover-text-color);
 }
 
+#logomain {
+    position: relative;
+    margin-left: 1rem;
+    height: 85px;
+    width: 45vw;
+    padding: 20px;
+}
+.nav-logo {
+    width: 50vw;
+    height: 60px;
+    overflow: hidden;
+    position: absolute;
+}
+
+@media screen and (min-width: 400px) and (max-width: 620px) {
+    #logomain {
+        position: relative;
+        height: 105px;
+        width: 50vw;
+        margin: 0;
+        margin-top: -0.4rem;
+    }
+    .nav-logo {
+        width: 50vw;
+        height: 80px;
+        overflow: hidden;
+        position: absolute;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+        background-color: var(--nav-bkgd-color);
+    }
+    
+    #navBurger {
+        position: relative;
+        display: block;
+        font-size: 2rem;
+        color: var(--nav-text-color);        
+        padding: 0.1em 0 0 0.3em;
+        max-height: 2rem;
+        margin-right: auto;
+        margin-top: 0.8rem;
+    }
+    
+}
+
+
+
 
 /* ----- MEDIA QUERY for landscape/desktop layout ----- */
 @media screen and (orientation: landscape) {
 
+
+    nav {
+        justify-content: flex-start;
+    }
+    
     #navBurger {
         display: none;
     }
@@ -118,13 +180,12 @@ nav>ul>li>ul>li:hover a {
         overflow: visible;
         width: 100%;
         display: flex;
-        
         justify-content: flex-end;
     }
 
     nav>ul>li {
-        float: left;
-        margin: 0.5rem;
+        margin: 0rem;
+        margin-top: 2rem;
     }
 
     nav>ul>li a {
@@ -163,31 +224,21 @@ nav>ul>li>ul>li:hover a {
         font-size: 1rem;
     }
 
+
+    #logomain {
+        position: absolute;
+        height: 100px;
+        width: 20vw;
+        margin: 0;
+        margin-left: -1rem;
+    }
+    .nav-logo {
+        width: 25vw;
+        height: 100px;
+        overflow: hidden;
+        position: absolute;
+       
+    }
+
 }
 
-#homebigimg {
-    width: 70vw;
-    max-width: 75vw;
-    height: auto;
-
-}
-
-#logomain {
-    position: relative;
-    align-self: center center;
-    height: 135px;
-    width: 18vw;
-    padding: 20px;
-    background: none;
-    position: absolute;
-    object-fit: cover;
-    object-position: bottom;
-    
-}
-.nav-logo {
-    width: 25vw;
-    height: 55px;
-    overflow: hidden;
-    position: absolute;
-    margin: 0 -1rem;
-}
