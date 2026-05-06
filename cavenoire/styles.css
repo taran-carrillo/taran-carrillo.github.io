@@ -123,11 +123,11 @@ nav>ul>li>ul>li:hover a {
     position: absolute;
 }
 
-@media screen and (min-width: 400px) and (max-width: 620px) {
+@media screen and (min-width: 400px) and (max-width: 750px) {
     #logomain {
         position: relative;
         height: 105px;
-        width: 50vw;
+        width: 210px;
         margin: 0;
         margin-top: -0.4rem;
     }
@@ -165,7 +165,7 @@ nav>ul>li>ul>li:hover a {
 
 
 /* ----- MEDIA QUERY for landscape/desktop layout ----- */
-@media screen and (orientation: landscape) {
+@media screen and (min-width: 750px) {
 
 
     nav {
