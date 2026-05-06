@@ -20,10 +20,7 @@
         .bodytext {
             font-family: helvetica;
             color: white;
-            border: 1px solid white;
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 8px;
+            
         }
 
         main{
@@ -34,6 +31,10 @@
             padding: 20px;
             width: 300px;
             height: auto;
+            border: 1px solid white;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
         }
 
         #first-text-home {
@@ -54,10 +55,15 @@
         #home-page-right-container {
             display: flex;
             width: 100%;
-
+            
         }
 
-
+    #top-body-text-container {
+        border: 1px solid white;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 8px;
+    }
 
         @media screen and (min-width: 750px) {
             main {
@@ -155,10 +161,12 @@
 
         <div id="home-page-right-container">
             
+            <div id="top-body-text-container">
             <h3 id="intro-topbody">Welcome to Cave Noire!</h3>
             <p class="bodytext" id="topbody"> Not just a wine shop, but a signature journey
                 including wine tasting flights, exclusive bottles of Dead Crow Wines and a welcome experience for all!
             </p>
+            </div>
         </div>
 
     </div>
