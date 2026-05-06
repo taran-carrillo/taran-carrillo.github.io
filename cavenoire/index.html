@@ -78,35 +78,20 @@
         /* media query for larger screens */
 
         @media screen and (min-width: 750px) {
-            main {
-                min-height: 100vh;
-                width: 70%;
-                max-width: 70vw;
-                overflow: hidden;
-                margin: 0;
-                padding: 0;
-                margin-right: auto;
-            }
-
-            #introtext {
-                padding: 20px;
-                border: 1px solid white;
-                width: 200px;
-                text-align: center;
-                background-color: rgba(0, 0, 0, 0.7);
-                border-radius: 8px;
-            }
 
             #home-page-full {
-                width: 100%;
+                width: 70vw;
                 height: 100%;
                 display: flex;
-                justify-content: flex-end;
+                flex-wrap: nowrap;
             }
 
             #home-page-right-container {
-                width: 30%;
+                width: 30vw;
                 height: auto;
+                display: flex;
+                justify-content: flex-end;
+                
             }
 
         }
