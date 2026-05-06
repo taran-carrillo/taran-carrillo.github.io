@@ -1,5 +1,4 @@
-// js for recipe site
-// JS for responsive menu demo
+// js for Cave Noire
 // file renamed to "scripts.js" (plural) after the demo
 
 // function to hide/show menu items 
