@@ -122,6 +122,35 @@ nav>ul>li>ul>li:hover a {
     position: absolute;
 }
 
+main {
+  background-color: black;
+  color: white;
+  height: 500px;
+  width: 70vw;
+  max-width: 70vw;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  margin-right: auto;
+}
+
+.bodytext {
+  font-family: helvetica;
+}
+
+#introtext {
+  padding: 20px;
+  border: 1px solid white;
+  width: 200px;
+  text-align: center;
+}
+
+#home-page-full {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: flex-end;
+}
 
 
 /* media query for in between size to minimize ugly sizing mess */
