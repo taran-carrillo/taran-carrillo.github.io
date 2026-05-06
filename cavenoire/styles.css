@@ -1,8 +1,7 @@
 /* css page for cave noire website */
 
-/* CSS for responsive menu demo */
+/* starter code for nav menu copied from demo (updated and changed to fit the website) */
 
-/* define variables */
 :root {
     --nav-bkgd-color: black;
     --nav-text-color: white;
@@ -123,6 +122,9 @@ nav>ul>li>ul>li:hover a {
     position: absolute;
 }
 
+
+/* media query for in between size to minimize ugly sizing mess */
+
 @media screen and (min-width: 400px) and (max-width: 750px) {
     #logomain {
         position: relative;
@@ -164,7 +166,7 @@ nav>ul>li>ul>li:hover a {
 
 
 
-/* ----- MEDIA QUERY for landscape/desktop layout ----- */
+/* ----- MEDIA QUERY for larger desktop size ----- */
 @media screen and (min-width: 750px) {
 
 
