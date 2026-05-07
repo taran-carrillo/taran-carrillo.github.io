@@ -48,6 +48,8 @@ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    padding-top: 10px;
+    margin-top: 40px;
 }
 
 nav>ul {
@@ -117,19 +119,18 @@ nav>ul>li>ul>li:hover a {
 }
 
 #logomain {
-    position: relative;
     height: 95px;
-    width: 50vw;
     padding: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    margin-top: -2rem;
     
 }
 .nav-logo {
-    width: 60vw;
-    height: 80px;
-    overflow: hidden;
+    width: auto;
     position: block;
-    margin-left: 6rem;
-    margin-top: -1.8rem;
 }
 
 #wrap-base {
@@ -151,20 +152,9 @@ color: var(--body-text-color);
 
 @media screen and (min-width: 400px) and (max-width: 750px) {
     #logomain {
-        position: relative;
         height: 105px;
-        width: 210px;
-        margin: 0;
+        margin-top: -2.4rem;
     }
-    .nav-logo {
-        width: 50vw;
-        height: 80px;
-        overflow: hidden;
-        display: block;
-        margin-top: -2.3rem;
-        margin-left: 8rem;
-    }
-
     
 }
 
