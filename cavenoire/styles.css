@@ -177,6 +177,11 @@ color: var(--body-text-color);
         margin-top: 0;
     }
 
+    a.navmenu {
+        margin-right: 15px;
+        margin-top: -0.5rem;
+    }
+
     nav>ul {
         overflow: visible;
         width: 100%;
