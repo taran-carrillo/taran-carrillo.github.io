@@ -20,26 +20,30 @@
             width: 100%;
         }
 
-        #about-intro-container {
+        #about-page-full {
             display: flex;
             height: 30vh;
             width: 100vw;
             justify-content: center;
+            align-content: flex-start;
             flex-wrap: wrap;
         }
 
         #mission-statement {
             width: 75vw;
             text-align: center;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%)
         }
 
         #about-intro-text {
-            width: 90vw;
+            margin-left: 5px;
+            margin-right: 5px;
             text-align: center;
 
+        }
+
+        #about-intro {
+            width: 100vw;
+            text-align: center;
         }
     </style>
 </head>
@@ -95,8 +99,10 @@
         <div id="img-abt">
             <img src="/cavenoire/images/348s.jpg" alt="cave noire store front" width="300px" height="auto">
         </div>
+
         <div id="mission-statement">
-            <p>Our mission is to provide good service to the community and to enjoy good wine with the people of the
+            <p id="mission-p">Our mission is to provide good service to the community and to enjoy good wine with the
+                people of the
                 Wenatchee Valley.</p>
         </div>
     </div>
