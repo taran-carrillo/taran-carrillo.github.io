@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,7 @@
     <link rel="stylesheet" href="styles.css" media="all">
     <script src="scripts.js" defer></script>
 
-     <style>
-
+    <style>
         * {
             color: white;
             font-family: Arial, Helvetica, sans-serif;
@@ -16,15 +16,36 @@
 
         #involved-page-full {
             background-color: var(--bg-color);
-            height: 100vh;
+            min-height: 100vh;
             width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
         }
 
+        #involved-full-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+        }
 
+        #involved-intro-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        #involved-main-section {
+            width: 100%;
+            text-align: center;
+        }
     </style>
 </head>
+
 <body>
-    
+
     <nav>
         <a id="navBurger">&#9776;</a>
 
@@ -70,6 +91,7 @@
         <div id="involved-full-container">
             <div id="involved-intro-container">
                 <h3>How to Get Involved?</h3>
+
                 <p>If you are looking for ways to support us, we have provided a few options below!</p>
             </div>
             <div id="involved-main-section">
@@ -78,16 +100,18 @@
         </div>
     </div>
 
-<footer>
+    <footer>
         <div id="wrap-base">
             <div id="thanks">
                 <h3>Thanks For Stopping By!</h3>
             </div>
             <div id="copyright">
-                <p id="copyright-p">© 2026 Taran Carrillo. Photo by Jordyn Smith. Logo designed by Taran Carrillo. Business is owned by Sabrina Strieck, I lay no claim to the business.</p>
+                <p id="copyright-p">© 2026 Taran Carrillo. Photo by Jordyn Smith. Logo designed by Taran Carrillo.
+                    Business is owned by Sabrina Strieck, I lay no claim to the business.</p>
             </div>
         </div>
 
     </footer>
 </body>
+
 </html>
