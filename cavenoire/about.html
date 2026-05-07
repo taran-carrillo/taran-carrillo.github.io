@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,7 @@
     <link rel="stylesheet" href="styles.css" media="all">
     <script src="scripts.js" defer></script>
 
-     <style>
-
+    <style>
         * {
             color: white;
             font-family: Arial, Helvetica, sans-serif;
@@ -20,12 +20,33 @@
             width: 100%;
         }
 
+        #about-intro-container {
+            display: flex;
+            height: 30vh;
+            width: 100vw;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
+        #mission-statement {
+            width: 75vw;
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%)
+        }
+
+        #about-intro-text {
+            width: 90vw;
+            text-align: center;
+
+        }
     </style>
 </head>
+
 <body>
-    
-<nav>
+
+    <nav>
         <a id="navBurger">&#9776;</a>
 
         <div class="nav-logo">
@@ -68,16 +89,19 @@
     <div id="about-page-full">
         <div id="about-intro-container">
             <h3 id="about-intro">Welcome to Cave Noire!</h3>
-            <p id="about-intro-text">Cave Noire is the only retail location for Dead Crow Wines, located in downtown Wenatchee, WA. </p>
+            <p id="about-intro-text">Cave Noire is the only retail location for Dead Crow Wines, located in downtown
+                Wenatchee, WA. </p>
         </div>
         <div id="img-abt">
             <img src="/cavenoire/images/348s.jpg" alt="cave noire store front" width="300px" height="auto">
         </div>
         <div id="mission-statement">
-         <p>Our mission is to provide good service to the community and to enjoy good wine with the people of the Wenatchee Valley.</p>
+            <p>Our mission is to provide good service to the community and to enjoy good wine with the people of the
+                Wenatchee Valley.</p>
         </div>
     </div>
-   
+
 
 </body>
+
 </html>
