@@ -173,6 +173,10 @@ color: var(--body-text-color);
         display: none;
     }
 
+    nav ul {
+        margin-top: 0;
+    }
+
     nav>ul {
         overflow: visible;
         width: 100%;
