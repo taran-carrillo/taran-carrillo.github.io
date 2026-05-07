@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tasting Menu - Cave Noire</title>
     <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
 
-     <style>
-
+    <style>
         * {
             color: white;
             font-family: Arial, Helvetica, sans-serif;
@@ -20,12 +20,22 @@
             width: 100%;
         }
 
+        #tasting-menu-full-container {
+            max-width: 70vw;
+            height: auto;
+        }
 
+        #full-page-contain {
+            display: flex;
+            justify-content: center;
+           
+        }
     </style>
 </head>
+
 <body>
 
-     <nav>
+    <nav>
         <a id="navBurger">&#9776;</a>
 
         <div class="nav-logo">
@@ -71,15 +81,17 @@
         </ul>
 
     </nav>
-
-    <div id="tasting-menu-page-full">
-        <div id="tasting-page-intro">
-            <h3 id="intro-tasting-menu-page">Here you can review our signature Flights as well as our other separate tasting options!</h3>
-        </div>
-        <div id="tasting-menu-full-container">
-            insert menu here
+    <div id="full-page-contain">
+        <div id="tasting-menu-page-full">
+            <div id="tasting-page-intro">
+                <h3 id="intro-tasting-menu-page">Here you can review our signature Flights as well as our other separate
+                    tasting options!</h3>
+            </div>
+            <div id="tasting-menu-full-container">
+                <img src="/cavenoire/menus/tasting-menu.png" alt="menu of wine tasting options">
+            </div>
         </div>
     </div>
-    
 </body>
+
 </html>
