@@ -67,6 +67,7 @@ nav>ul>li {
     display: block;
     margin: 1rem;
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 nav>ul>li>a {
@@ -91,6 +92,10 @@ nav>ul>li>ul {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s;
+}
+
+nav>ul>li>ul>li {
+    padding: 10px;
 }
 
 nav>ul>li.clicked>ul {
